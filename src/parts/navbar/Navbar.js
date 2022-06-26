@@ -19,7 +19,7 @@ const NavbarWrapper = styled.div`
 const NavbarLogo = styled.img`
     width: 150px;
     height: 49.5px;
-    object-fit: cover;
+    object-fit: contain;
     &:hover {
         cursor: pointer;
     }
