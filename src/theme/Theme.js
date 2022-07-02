@@ -6,4 +6,14 @@ const Theme = {
     }
 }
 
+const DarkTheme = {
+    colors: {
+        background: "#E5E5E5",
+        background_secondary: "#F8F9FA",
+        primary: "red",
+        text_color: "#FFF"
+    }
+}
+
+
 export default Theme;
