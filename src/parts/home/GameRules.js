@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import Button from "../../components/Button";
 import Panel from "../../components/Panel";
 import Column from "../../components/Column";
@@ -43,10 +43,62 @@ const GameRules = () => {
                             </Box>
                         </div>
                     </Column>
-                    <Row style={{ width: "100%" }}>
-                        <PhaseRect />
-                    </Row>
-                    <Row style={{ width: "100%", justifyContent: "flex-end" }}>
+                    <PhasesWrapper>
+                        <PhaseRect width="200px" height="200px" firstOne>
+                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <h6>PHASE 1</h6>
+                                <p>7390 tickets</p>
+                                <p>20 villes</p>
+                            </div>
+                        </PhaseRect>
+                        <StepRect><Tooltip>Phase 1<br/>Enigme 1</Tooltip></StepRect>
+                        <StepRect><Tooltip>Phase 1<br/>Enigme 2</Tooltip></StepRect>
+                        <StepRect><Tooltip>Phase 1<br/>Enigme 3</Tooltip></StepRect>
+                        <StepRect><Tooltip>Phase 1<br/>Enigme 4</Tooltip></StepRect>
+                        <StepRect><Tooltip>Phase 1<br/>Enigme 5</Tooltip></StepRect>
+                        <PhaseRect width="150px" height="150px">
+                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <h6>PHASE 2</h6>
+                                <p>739 tickets</p>
+                                <p>Régional</p>
+                            </div>
+                        </PhaseRect>
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <PhaseRect width="100px" height="100px">
+                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <h6>PHASE 1</h6>
+                                <p>74 tickets</p>
+                                <p>National</p>
+                            </div>
+                        </PhaseRect>
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <PhaseRect width="75px" height="75px">
+                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <h6>PHASE 4</h6>
+                                <p>8 tickets</p>
+                                <p>National</p>
+                            </div>
+                        </PhaseRect>
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <StepRect />
+                        <PhaseRect width="50px" height="50px">
+                        <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                                <h6>FIN</h6>
+                            </div>
+                        </PhaseRect>
+                    </PhasesWrapper> 
+                    <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
                         <Button secondary>
                             <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
                                 Comment jouer ?
@@ -65,23 +117,107 @@ const GameRules = () => {
     );
 }
 
-const PhaseRect = styled.div`
-    width: 200px;
-    height: 200px;
-    background: #7CC295;
-    border: 1px solid #F8F9FA;
-    border-radius: 32px;
+const Tooltip = styled.div`
+    position: absolute;
+    display: inline-block;
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.75rem;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    translate: -50%;
+    top: -65px;
+    left: 50%;
+    width: 5.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+`;
+
+const PhasesWrapper = styled.div`
     position: relative;
+    padding: 2.5rem 3.75rem;
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1;
+    /* gap: 15px; */
+    grid-template-columns: repeat(25, 1fr);
+    align-items: center;
+    align-content: center;
 
     &::after {
         content: '';
-        width: 100vw;
+        width: 94%;
         position: absolute;
-        border-bottom: 1px solid #7CC295;
-        left: 0;
+        border-bottom: 2px solid #7CC295;
+        left:0;
         top: 50%;
         z-index: 1;
     }
+`;
+
+const StepRect = styled.div`
+    width: 20px;
+    height: 18px;
+    background: #7CC295;
+    border-radius: 2px;
+    position: relative;
+    justify-self: center;
+    position: relative;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+        cursor: pointer;
+
+        ${Tooltip} {
+            visibility: visible;
+        }
+    }
+`;
+
+const PhaseRect = styled.div`
+    width: ${props => props.width};
+    height: ${props => props.height};
+    background: #7CC295;
+    border-radius: ${props => `calc(0.16 * ${props.width})`};
+    position: relative;
+    
+    ${
+        props => props.firstOne && css`
+            &::before {
+                content: '';
+                width: 100%;
+                position: absolute;
+                border-bottom: 2px solid #7CC295;
+                left: -100%;
+                top: 50%;
+                z-index: -1;
+            }
+    `};
+`;
+
+const CardRule = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 0.5rem;
+    border: 0.25rem solid #1f2b3a;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
 `;
 
 export default GameRules;
