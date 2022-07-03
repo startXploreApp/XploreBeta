@@ -2,6 +2,11 @@ import styled, { css, keyframes } from 'styled-components';
 import { useEffect, useState } from 'react';
 import Panel from '../../components/Panel';
 import Column from '../../components/Column';
+import Button from '../../components/Button';
+import Row from '../../components/Row';
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NFTImage from '../../components/NFTImage';
 
 const NFTCarousel = (props) => {
     const [carouselItems, setCarouselItems] = useState(false);
@@ -36,12 +41,11 @@ const NFTCarousel = (props) => {
                         ],
                         {
                             duration: 450,
+                            fill: 'forwards'
                         }
                     );
                 });
                 promise.then(setTimeout(() => {
-                    document.getElementById(firstValue[1]).style.transform = 'scale(0.01)';
-                    document.getElementById(firstValue[1]).style.opacity = 0.0
                     document.getElementById("carousel").animate(
                         [
                             {transform: 'translate(0)', offset: 0, width: "100%"},
@@ -49,15 +53,16 @@ const NFTCarousel = (props) => {
                             {transform: 'translate(-20%)', offset: 1, width: "100%"}
                         ],
                         {
-                            duration: 1000,
+                            duration: 250
                         }
                     )
                     setTimeout(() => {
                         tmp.push(firstValue);
-                        setCarouselItems(tmp);  
-                        document.getElementById(firstValue[1]).style.transform = 'scale(1)';
-                        document.getElementById(firstValue[1]).style.opacity = 1.0
-                    }, 1000)
+                        setCarouselItems(tmp);
+                        document.getAnimations().forEach((element, index) => {
+                            element.cancel();
+                        })
+                    }, 250)
                 }, 425));
             }, 5000);
             return () => clearInterval(timer);
@@ -66,22 +71,38 @@ const NFTCarousel = (props) => {
 
     return (
         <Panel style={{ alignItems: "flex-start" }}>
-            <Column style={{ width: "100%" }}>
+            <Column style={{ width: "100%"}}>
                 <h3 style={{ fontSize: "1.75rem" }}>
                     Plus de 7000 personnages exclusifs
                 </h3>
-                <CarouselContent id="carousel">
-                    {
-                        carouselItems ?
-                        carouselItems.map( (item, index) => (
-                            <CarouselItem
-                                key={item[1]}
-                                id={item[1]}
-                                src={item[0]}
-                                alt={item[1]} />
-                        )) : null
-                    }
-                </CarouselContent>
+                <Column style={{ width: "100%", padding: "0", alignContent: "center", alignItems: "center"}}>
+                    <CarouselContent id="carousel">
+                        {
+                            carouselItems ?
+                            carouselItems.map( (item, index) => (
+                                <CarouselItem
+                                    key={item[1]}
+                                    id={item[1]}
+                                    src={item[0]}
+                                    alt={item[1]} />
+                            )) : null
+                        }
+                    </CarouselContent>
+                    <h3>Un personnage, c'est un ticket qui vous permet de participer à l'aventure</h3>
+                    <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
+                        <Button secondary>
+                            <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
+                                Comment jouer ?
+                            </p>
+                        </Button>
+                        <Button primary>
+                            <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
+                                Acheter un ticket maintenant
+                            </p>
+                            <FontAwesomeIcon icon={faArrowRight} size={"xl"} />
+                        </Button>
+                    </Row>
+                </Column>
             </Column>
         </Panel>
     );
@@ -103,7 +124,6 @@ const CarouselContentWrapper = styled.div`
 
 const CarouselContent = styled.div`
     width: 100%;
-    height: 400px;
     display: grid;
     overflow: hidden;
     transition: all 250ms linear;
@@ -114,13 +134,8 @@ const CarouselContent = styled.div`
     gap: 1rem;
 `;
 
-const CarouselItem = styled.img`
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
+const CarouselItem = styled(NFTImage)`
     justify-self: center;
-    border-radius: 32px;
-    transition: all 0.5s ease-in;
 `;
 
 export default NFTCarousel;

@@ -11,8 +11,7 @@ const images = [
     require("../../assets/rocket_raccoon_3.jpg"),
     require("../../assets/rocket_raccoon_2.jpg"),
     require("../../assets/rocket_raccoon_3.jpg"),
-    require("../../assets/rocket_raccoon_0.jpg"),
-    require("../../assets/rocket_raccoon_2.jpg")
+    require("../../assets/rocket_raccoon_0.jpg")
 ]
 
 const Home = () => {
