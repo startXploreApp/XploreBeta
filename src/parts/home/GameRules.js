@@ -165,7 +165,7 @@ const PhasesWrapper = styled.div`
         border-bottom: 2px solid #7CC295;
         left:0;
         top: 50%;
-        z-index: 1;
+        z-index: -1;
     }
 `;
 
