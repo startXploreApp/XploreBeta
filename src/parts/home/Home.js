@@ -5,6 +5,8 @@ import OnHover from "./OnHover";
 import VideoPresentation from "./VideoPresentation";
 import GameRules from "./GameRules";
 import NFTCarousel from "./NFTCarousel";
+import QuestionPlease from "./QuestionPlease";
+import Partners from "./Partners";
 
 const images = [
     require("../../assets/rocket_raccoon_0.jpg"),
@@ -12,6 +14,14 @@ const images = [
     require("../../assets/rocket_raccoon_2.jpg"),
     require("../../assets/rocket_raccoon_3.jpg"),
     require("../../assets/rocket_raccoon_0.jpg")
+]
+
+const partners = [
+    require("../../assets/elrond_logo.png"),
+    require("../../assets/elrond_logo.png"),
+    require("../../assets/elrond_logo.png"),
+    require("../../assets/elrond_logo.png"),
+    require("../../assets/elrond_logo.png")
 ]
 
 const Home = () => {
@@ -26,7 +36,9 @@ const Home = () => {
                     <img style={{ objectPosition: "center 70%", width: "100%", height: "300px", objectFit: "cover" }} src={ require("../../assets/pexels-oziel-gómez-860562.jpg") } alt="4"/>
                 </Column>
             </Panel>
-            <NFTCarousel images={images}/>
+            <NFTCarousel images={images} />
+            <QuestionPlease image={require("../../assets/rocket_raccoon_0.jpg")}/>
+            <Partners partners={partners} />
         </>
     );
 

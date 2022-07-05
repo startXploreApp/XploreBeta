@@ -70,7 +70,7 @@ const NFTCarousel = (props) => {
     }, [carouselItems]);
 
     return (
-        <Panel style={{ alignItems: "flex-start" }}>
+        <Panel style={{ height: "85vh", alignItems: "flex-start" }}>
             <Column style={{ width: "100%"}}>
                 <h3 style={{ fontSize: "1.75rem" }}>
                     Plus de 7000 personnages exclusifs
