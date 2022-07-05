@@ -24,9 +24,7 @@ const NFTCarousel = (props) => {
         if (carouselItems) {
             const timer = setInterval(() => {
                 let tmp = [...carouselItems];
-                console.log(tmp);
                 let firstValue = tmp.shift();
-                console.log(firstValue);
                 let promise = new Promise((resolve, reject) => {  
                     document.getElementById(firstValue[1]).animate(
                         [

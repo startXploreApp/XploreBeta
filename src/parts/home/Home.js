@@ -7,6 +7,8 @@ import GameRules from "./GameRules";
 import NFTCarousel from "./NFTCarousel";
 import QuestionPlease from "./QuestionPlease";
 import Partners from "./Partners";
+import NewsLetter from "../../components/Newsletter";
+import Footer from '../../components/Footer';
 
 const images = [
     require("../../assets/rocket_raccoon_0.jpg"),
@@ -39,6 +41,8 @@ const Home = () => {
             <NFTCarousel images={images} />
             <QuestionPlease image={require("../../assets/rocket_raccoon_0.jpg")}/>
             <Partners partners={partners} />
+            <NewsLetter />
+            <Footer />
         </>
     );
 

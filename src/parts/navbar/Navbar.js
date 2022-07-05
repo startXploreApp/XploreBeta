@@ -45,7 +45,7 @@ const NavbarRow = styled.div`
     gap: 1rem;
 `;
 
-const NavbarListItem = styled.li`
+export const NavbarListItem = styled.li`
     list-style: none;
     transition: all 0.2s ease-in-out;
     color: ${props => props.active ? props.theme.colors.primary : props.lightMode ? "#000" : "#FFF"};
@@ -56,7 +56,7 @@ const NavbarListItem = styled.li`
     }
 `;
 
-const NavbarList = styled.ul`
+export const NavbarList = styled.ul`
     display: flex;
     align-content: center;
     gap: 6rem;
