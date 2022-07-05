@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+
 import HowToStart from "./HowToStart";
+import { NoResponsability } from "./NoResponsability";
 import StartGuide from "./StartGuide"
+import WhatIsEnigma from "./WhatIsEnigma";
+import { WhyNFT } from "./WhyNFT";
 
 
 const HowToPlay = () => {
@@ -9,6 +11,9 @@ const HowToPlay = () => {
         <>
             <StartGuide />
             <HowToStart />
+            <WhatIsEnigma />
+            <WhyNFT />
+            <NoResponsability />
         </>
     );
 }
