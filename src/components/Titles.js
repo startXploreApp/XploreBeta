@@ -6,7 +6,7 @@ export const TitleSection = styled.h2`
 `;
 
 export const SubTitle = styled.h2`
-    margin-bottom: 8px;
+    margin-bottom: 0.75rem;
     font-weight: 700;
 `;
 

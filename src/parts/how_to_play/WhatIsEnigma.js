@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Box } from "../../components/Box";
 import Column from "../../components/Column";
 import Panel from "../../components/Panel";
 import Row from "../../components/Row";
@@ -7,7 +8,7 @@ import { Text } from "../../components/Titles";
 const GreenLine = styled.div`
     width : 100%;
     background-color:#7CC295;
-    height : 30px;
+    height : 2rem;
     margin-left : ${props => props.position === "right" ? "-3.75rem" : "3.75rem"};
 `;
 
@@ -21,25 +22,18 @@ const GreenTitle = ({ position = "right", title }) => {
     )
 }
 
-const Box = styled.div`
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    max-width : 30rem;
-    border-radius: 16px;
-    padding: 2rem;
-    gap: 0.5rem;
-    border: 0.25rem solid #1f2b3a;
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-    background-color : white;
-`;
-
 const Card = ({ text, image, ...props }) => {
     return (
-        <Box {...props}>
-            <img src={image} style={{ width: "100%", objectFit: "cover" }} />
-            <Text light style={{ marginTop: "2rem" }}>{text}</Text>
+        <Box column {...props}>
+            <img
+                src={image}
+                style={{ width: "100%", objectFit: "cover" }} />
+            <Text
+                light
+                style={{ marginTop: "2rem" }}
+            >
+                {text}
+            </Text>
         </Box>
     )
 }
@@ -55,7 +49,9 @@ const WhatIsEnigma = () => {
                     <GreenTitle title="Étape 1" />
                 </Row>
                 <Row style={{ justifyContent: "space-between", width: "100%", marginTop: "-3rem" }}>
-                    <GreenTitle title="Étape 2" position="left" />
+                    <GreenTitle
+                        title="Étape 2"
+                        position="left" />
                     <Card text="Avec les indices de l’énigme, on peut donc déduire un périmètre de recherche pour dénicher le QRcode." image={require("../../assets/paris.png")} />
                 </Row>
                 <Row style={{ justifyContent: "space-between", width: "100%", marginTop: "-3rem" }}>
