@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const RedDot = styled.div`
-    width: 36px;
-    height: 36px;
+    width: 2.2rem;
+    height: 2.2rem;
     background-color: #FF2521;
     border-radius: 50%;
     display: inline-block;
@@ -31,7 +31,10 @@ const StartExplore = () => {
                 </Column>
 
                 <Column>
-                    <h2 style={{ lineHeight: "42px" }}>Bienvenue dans le premier jeu décentralisé qui vous récompense pour <span style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span></h2>
+                    <h2 style={{ lineHeight: "42px" }}>
+                        Bienvenue dans le premier jeu décentralisé qui vous récompense pour 
+                        <span style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span>
+                    </h2>
                     <Row style={{ gap: "1.5rem" }}>
                         <Button>
                             <h6>En savoir plus</h6>

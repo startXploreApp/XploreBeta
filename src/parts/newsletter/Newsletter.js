@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Button from "./Button";
-import Column from "./Column";
-import Panel from "./Panel";
+import Button from "../../components/Button";
+import Column from "../../components/Column";
+import Panel from "../../components/Panel";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

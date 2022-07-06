@@ -6,7 +6,7 @@ const CollapsibleCardWrapper = styled.div`
     padding: 1.5rem;
     color: white;
     background: linear-gradient(95.11deg, #12A04B -1.7%, #25313F 99.97%);
-    border-radius: 16px;
+    border-radius: 1rem;
     display: flex;
     gap: 0.5rem;
     justify-content: space-between;
@@ -29,7 +29,7 @@ const Arrow = styled.div`
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    transition: all 0.7s ease-in-out;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
         cursor: pointer;

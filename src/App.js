@@ -5,6 +5,7 @@ import HowToPlay from "./parts/how_to_play/HowToPlay";
 import Navbar from "./parts/navbar/Navbar";
 import DarkTheme from './theme/Theme';
 import { ThemeProvider } from 'styled-components';
+import Footer from "./parts/footer/Footer";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route exact path="/" element={<Home />} />
                 <Route path="/how-to-play" element={<HowToPlay />} />
             </Routes>
+            <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </BrowserRouter>
     );
 }

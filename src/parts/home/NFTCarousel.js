@@ -60,7 +60,7 @@ const NFTCarousel = (props) => {
                         document.getAnimations().forEach((element, index) => {
                             element.cancel();
                         })
-                    }, 250)
+                    }, 260)
                 }, 425));
             }, 5000);
             return () => clearInterval(timer);
@@ -70,9 +70,11 @@ const NFTCarousel = (props) => {
     return (
         <Panel style={{ height: "85vh", alignItems: "flex-start" }}>
             <Column style={{ width: "100%"}}>
+
                 <h3 style={{ fontSize: "1.75rem" }}>
                     Plus de 7000 personnages exclusifs
                 </h3>
+
                 <Column style={{ width: "100%", padding: "0", alignContent: "center", alignItems: "center"}}>
                     <CarouselContent id="carousel">
                         {
@@ -86,17 +88,23 @@ const NFTCarousel = (props) => {
                             )) : null
                         }
                     </CarouselContent>
-                    <h3>Un personnage, c'est un ticket qui vous permet de participer à l'aventure</h3>
+
+                    <h3>
+                        Un personnage, c'est un ticket qui vous permet de participer à l'aventure
+                    </h3>
+
                     <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
                         <Button secondary>
                             <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
                                 Comment jouer ?
                             </p>
                         </Button>
+
                         <Button primary>
                             <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
                                 Acheter un ticket maintenant
                             </p>
+
                             <FontAwesomeIcon icon={faArrowRight} size={"xl"} />
                         </Button>
                     </Row>
@@ -105,20 +113,6 @@ const NFTCarousel = (props) => {
         </Panel>
     );
 }
-
-const CarouselWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 3rem 3rem;
-    position: relative;
-`;
-
-const CarouselContentWrapper = styled.div`
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-`;
 
 const CarouselContent = styled.div`
     width: 100%;
@@ -134,6 +128,7 @@ const CarouselContent = styled.div`
 
 const CarouselItem = styled(NFTImage)`
     justify-self: center;
+    height: 400px;
 `;
 
 export default NFTCarousel;

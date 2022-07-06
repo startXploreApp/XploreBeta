@@ -51,11 +51,15 @@ const GameRules = () => {
                                 <p>20 villes</p>
                             </div>
                         </PhaseRect>
-                        <StepRect><Tooltip>Phase 1<br/>Enigme 1</Tooltip></StepRect>
-                        <StepRect><Tooltip>Phase 1<br/>Enigme 2</Tooltip></StepRect>
-                        <StepRect><Tooltip>Phase 1<br/>Enigme 3</Tooltip></StepRect>
-                        <StepRect><Tooltip>Phase 1<br/>Enigme 4</Tooltip></StepRect>
-                        <StepRect><Tooltip>Phase 1<br/>Enigme 5</Tooltip></StepRect>
+                        {
+                            [...Array(5).keys()].map(j => (
+                                <StepRect key={j}>
+                                    <Tooltip>
+                                        Phase 1<br/>Enigme {j+1}
+                                    </Tooltip>
+                                </StepRect>
+                            ))
+                        }
                         <PhaseRect width="150px" height="150px">
                             <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                                 <h6>PHASE 2</h6>
@@ -63,23 +67,31 @@ const GameRules = () => {
                                 <p>Régional</p>
                             </div>
                         </PhaseRect>
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
+                        {
+                            [...Array(5).keys()].map(j => (
+                                <StepRect key={j}>
+                                    <Tooltip>
+                                        Phase 2<br/>Enigme {j+1}
+                                    </Tooltip>
+                                </StepRect>
+                            ))
+                        }
                         <PhaseRect width="100px" height="100px">
                             <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                                <h6>PHASE 1</h6>
+                                <h6>PHASE 3</h6>
                                 <p>74 tickets</p>
                                 <p>National</p>
                             </div>
                         </PhaseRect>
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
+                        {
+                            [...Array(5).keys()].map(j => (
+                                <StepRect key={j}>
+                                    <Tooltip>
+                                        Phase 3<br/>Enigme {j+1}
+                                    </Tooltip>
+                                </StepRect>
+                            ))
+                        }
                         <PhaseRect width="75px" height="75px">
                             <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                                 <h6>PHASE 4</h6>
@@ -87,14 +99,19 @@ const GameRules = () => {
                                 <p>National</p>
                             </div>
                         </PhaseRect>
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
-                        <StepRect />
+                        {
+                            [...Array(5).keys()].map(j => (
+                                <StepRect key={j}>
+                                    <Tooltip>
+                                        Phase 4<br/>Enigme {j+1}
+                                    </Tooltip>
+                                </StepRect>
+                            ))
+                        }
                         <PhaseRect width="50px" height="50px">
                         <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
                                 <h6>FIN</h6>
+                                <p style={{ width: "max-content" }}>1 TRÉSOR</p>
                             </div>
                         </PhaseRect>
                     </PhasesWrapper> 
