@@ -8,10 +8,10 @@ const Button = styled.button`
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    border: ${props => props.primary ? "1px solid " + props.theme.colors.primary : props.secondary ? "1px solid #000" : "none"};
+    border: ${props => props.primary ? "1px solid " + props.theme.colors.primary : props.secondary ? "1px solid #000" : props.ghost ? "1px solid #FFF" : "none"};
     border-radius: 0.5rem;
-    color: ${ props => props.primary || props.secondary ? "#000" : "#fff" };
-    background-color: ${ props => props.primary ? props.theme.colors.primary : props.secondary ? "#fff" : "#000" };
+    color: ${props => props.primary || props.secondary ? "#000" : "#fff"};
+    background-color: ${props => props.primary ? props.theme.colors.primary : props.secondary ? "#fff" : props.ghost ? "transparent" : "#000"};
     transition: all 0.2s ease-out;
 
     &:hover {

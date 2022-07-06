@@ -6,7 +6,7 @@ const Column = styled.div`
     align-items: flex-start;
     padding: 2.5rem 3.75rem;
     gap: 2rem;
-    /* border: 2px dashed greenyellow; */
+    border: 2px dashed greenyellow;
 `;
 
 export default Column;

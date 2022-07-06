@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./parts/home/Home";
 import HowToPlay from "./parts/how_to_play/HowToPlay";
 import Navbar from "./parts/navbar/Navbar";
+import DarkTheme from './theme/Theme';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
 
-    const [currentPage, setCurrentPage] = useState(0);
+    const path = window.location.pathname
+    const [currentPage, setCurrentPage] = useState(path);
+
+    useEffect(() => {
+        setCurrentPage(path)
+    }, [])
 
     return (
         <BrowserRouter>
-            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
             <Routes>
-                <Route exact path="/" element={<Home />}/>
-                <Route path="/how-to-play" element={<HowToPlay />}/>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/how-to-play" element={<HowToPlay />} />
             </Routes>
         </BrowserRouter>
     );

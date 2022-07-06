@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { faDiscord, faInstagram, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Button from "../../components/Button";
+import { useEffect, useState } from "react";
 
 const NavbarWrapper = styled.div`
     border: 2px dashed red;
@@ -14,6 +15,10 @@ const NavbarWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    z-index : 1000;
+    position : absolute;
+    top:0;
+    left:0;
 `;
 
 const NavbarLogo = styled.img`
@@ -43,7 +48,7 @@ const NavbarRow = styled.div`
 const NavbarListItem = styled.li`
     list-style: none;
     transition: all 0.2s ease-in-out;
-    color: ${ props => props.active ? props.theme.colors.primary : "#000" };
+    color: ${props => props.active ? props.theme.colors.primary : props.lightMode ? "#000" : "#FFF"};
 
     &:hover {
         cursor: pointer;
@@ -62,7 +67,7 @@ const NavbarIcon = styled(FontAwesomeIcon)`
 
     &:hover {
         cursor: pointer;
-        color: ${ props => props.theme.colors.primary };
+        color: ${props => props.theme.colors.primary};
     }
 `;
 
@@ -70,57 +75,62 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
     const navigate = useNavigate();
 
-    const tabs = [
-        [0, "Accueil"],
-        [1, "Comment jouer"],
-        [2, "Litepaper"],
-        [3, "L'équipe"]
-    ]
+    const [lightMode, setLightMode] = useState(true)
 
-    const handleClickNavbar = (nextPage) => {
-        setCurrentPage(nextPage);
-        switch(nextPage) {
-            case 0:
-                navigate("/");
+    useEffect(() => {
+        switch (currentPage) {
+            case "/":
+                setLightMode(true)
                 break;
-            case 1:
-                navigate("/how-to-play");
+            case "/how-to-play":
+                setLightMode(false)
                 break;
-            case 2:
-                navigate("/litepaper");
+            case "/litepaper":
+                setLightMode(true)
                 break;
-            case 3:
-                navigate("/team")
+            case "/team":
+                setLightMode(true)
                 break;
             default:
-                navigate("/");
+                setLightMode(true)
                 break;
         }
-    }
+    }, [currentPage])
+
+    const tabs = [
+        ["/", "Accueil"],
+        ["/how-to-play", "Comment jouer"],
+        ["/litepaper", "Litepaper"],
+        ["/team", "L'équipe"]
+    ]
 
     return (
         <NavbarWrapper>
             <NavbarLogo
-                src={ require("../../assets/logo_color.svg").default } />
+                src={require("../../assets/logo_color.svg").default} />
 
             <NavbarList>
-                { tabs.map((item) => (
+                {tabs.map((item) => (
                     <NavbarListItem
-                        active={currentPage == item[0] ? true : false}
-                        onClick={ (event) => handleClickNavbar(item[0]) }>
-                        <h6> { item[1] } </h6>
+                        lightMode={lightMode}
+                        active={currentPage === item[0]}
+                        onClick={() => {
+                            setCurrentPage(item[0])
+                            navigate(item[0])
+                        }}>
+                        <h6> {item[1]} </h6>
                     </NavbarListItem>
                 ))}
             </NavbarList>
 
             <NavbarCol>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon icon={faDiscord} style={{fontSize: "28px" }}/>
-                    <NavbarIcon icon={faTwitter} style={{fontSize: "28px" }}/>
+                    <NavbarIcon icon={faDiscord} style={{ fontSize: "28px" }} />
+                    <NavbarIcon icon={faTwitter} style={{ fontSize: "28px" }} />
                 </NavbarRow>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon icon={faInstagram} style={{fontSize: "28px" }}/>
-                    <NavbarIcon icon={faTelegram} style={{fontSize: "28px" }}/>
+                    <NavbarIcon icon={faInstagram} style={{ fontSize: "28px" }} />
+                    <NavbarIcon icon={faTelegram} style={{ fontSize: "28px" }} />
                 </NavbarRow>
             </NavbarCol>
 
