@@ -2,8 +2,7 @@ import styled, { css } from "styled-components";
 
 const Panel = styled.div`
     width: 100%;
-    min-height: ${props => props.firstPage ? "calc(100vh - 10rem)" : "100vh"};
-    margin-top : ${props => props.firstPage ? "10rem" : "0px"};
+    height: ${props => props.firstPage ? "calc(100vh - 10rem)" : "100vh"};
     display: flex;
     overflow : hidden;
     flex-direction: row;

@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const FooterListItem = styled.li`
     list-style: none;
     transition: all 0.2s ease-in-out;
-    color: #fff;
+    color: ${props => props.active ? props.theme.colors.primary : "#FFF"};
 
     &:hover {
         cursor: pointer;
@@ -31,10 +31,10 @@ const Footer = ({ currentPage, setCurrentPage }) => {
     const navigate = useNavigate();
     
     const navbar_tabs = [
-        [0, "Accueil"],
-        [1, "Comment jouer"],
-        [2, "Litepaper"],
-        [3, "L'équipe"]
+        ["/", "Accueil"],
+        ["/how-to-play", "Comment jouer"],
+        ["/litepaper", "Litepaper"],
+        ["/team", "L'équipe"]
     ]
 
     const footer_tabs = [
@@ -43,28 +43,6 @@ const Footer = ({ currentPage, setCurrentPage }) => {
         ["", "Disclaimer"],
         ["", "Mentions légales"]
     ]
-
-    const handleClickFooter = (nextPage) => {
-        console.log(nextPage);
-        setCurrentPage(nextPage);
-        switch(nextPage) {
-            case 0:
-                navigate("/");
-                break;
-            case 1:
-                navigate("/how-to-play");
-                break;
-            case 2:
-                navigate("/litepaper");
-                break;
-            case 3:
-                navigate("/team")
-                break;
-            default:
-                navigate("/");
-                break;
-        }
-    }
 
     return(
         <Panel style={{ height: "67vh", backgroundColor: "#000" }}>
@@ -81,8 +59,11 @@ const Footer = ({ currentPage, setCurrentPage }) => {
                         <>
                         { navbar_tabs.map((item) => (
                             <FooterListItem
-                                active={currentPage == item[0] ? true : false}
-                                onClick={ (event) => handleClickFooter(item[0]) }>
+                                active={currentPage === item[0]}
+                                onClick={() => {
+                                    setCurrentPage(item[0]);
+                                    navigate(item[0]);
+                                }}>
                                 <h6> { item[1] } </h6>
                             </FooterListItem>
                         ))}
@@ -96,8 +77,11 @@ const Footer = ({ currentPage, setCurrentPage }) => {
                     <FooterList style={{ gap: "2rem", alignContent: "center", alignItems: "center"}}>
                         { footer_tabs.map((item) => (
                             <FooterListItem
-                                active={currentPage == item[0] ? true : false}
-                                onClick={ (event) => handleClickFooter(item[0]) }>
+                                active={currentPage === item[0]}
+                                onClick={() => {
+                                    setCurrentPage(item[0]);
+                                    navigate(item[0]);
+                                }}>
                                 <h6> { item[1] } </h6>
                             </FooterListItem>
                         ))}

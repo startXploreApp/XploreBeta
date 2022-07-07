@@ -40,7 +40,7 @@ const Card = ({ text, image, ...props }) => {
 
 const WhatIsEnigma = () => {
     return (
-        <Panel backgroundColor={"#F8F9FA"} >
+        <Panel backgroundColor={"#F8F9FA"} style={{ height: "auto" }}>
             <Column style={{ width: "100%" }}>
                 <h2 style={{ marginBottom: 8 }}>A quoi ressemble une énigme ?</h2>
                 <Row style={{ justifyContent: "space-between", width: "100%" }}>

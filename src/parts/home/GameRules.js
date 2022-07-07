@@ -10,11 +10,11 @@ import { Text } from "../../components/Titles";
 
 const GameRules = () => {
     return (
-        <Panel style={{ alignItems: "flex-start" }}>
+        <Panel style={{ alignItems: "flex-start", height: "auto"}}>
             <Column style={{ width: "100%", gap: "24px" }}>
                 <h3>Règles du jeu</h3>
-                <Column style={{ width: "100%" }}>
-                    <Column style={{ width: "100%" }}>
+                <Column style={{ width: "100%", padding: "0" }}>
+                    <Column style={{ padding: "0", width: "100%" }}>
                         <div style={{ width: "100%", columnGap: "1rem", display: "grid", gridTemplateColumns: "2fr 1fr 2fr", gridTemplateRows: "1" }}>
                             <Box>
                                 <Text>
@@ -115,7 +115,7 @@ const GameRules = () => {
                             </div>
                         </PhaseRect>
                     </PhasesWrapper> 
-                    <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
+                    <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0", marginTop: "5rem" }}>
                         <Button secondary>
                             <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
                                 Comment jouer ?
@@ -165,7 +165,7 @@ const Tooltip = styled.div`
 
 const PhasesWrapper = styled.div`
     position: relative;
-    padding: 2.5rem 3.75rem;
+    padding: 0;
     box-sizing: border-box;
     width: 100%;
     display: grid;
@@ -177,7 +177,7 @@ const PhasesWrapper = styled.div`
 
     &::after {
         content: '';
-        width: 94%;
+        width: 100%;
         position: absolute;
         border-bottom: 2px solid #7CC295;
         left:0;
