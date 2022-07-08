@@ -33,7 +33,7 @@ const StartExplore = () => {
                         </h1>
                     </Row>
                     <Button primary>
-                        <h6 style={{ color: "white"}}>
+                        <h6>
                             Acheter un ticket maintenant 
                         </h6>
                         <FontAwesomeIcon icon={faArrowRight} size={"xl"} />

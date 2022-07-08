@@ -10,7 +10,7 @@ import { Text } from "../../components/Titles";
 
 const GameRules = () => {
     return (
-        <Panel style={{ alignItems: "flex-start", height: "auto"}}>
+        <Panel style={{ alignItems: "flex-start", height: "auto", backgroundColor: "#F8F9FA"}}>
             <Column style={{ width: "100%", gap: "24px" }}>
                 <h3>Règles du jeu</h3>
                 <Column style={{ width: "100%", padding: "0" }}>
@@ -177,7 +177,7 @@ const PhasesWrapper = styled.div`
 
     &::after {
         content: '';
-        width: 100%;
+        width: 97%;
         position: absolute;
         border-bottom: 2px solid #7CC295;
         left:0;

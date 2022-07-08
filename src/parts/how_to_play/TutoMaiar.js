@@ -5,14 +5,14 @@ import { Text } from "../../components/Titles"
 
 export const TutoMaiar = () => {
     return (
-        <Panel backgroundColor="#1F2B3A">
-            <Column style={{ width: "100%", color: "#D0D0D0" }}>
+        <Panel backgroundColor="#1F2B3A" style={{ height: "auto"}}>
+            <Column style={{ width: "100%", color: "#D0D0D0", height: "100%"}}>
                 <h2 >Tutoriel Maiar</h2>
                 <Row style={{ width: "100%", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <h1 style={{ fontSize: "10rem" }}>1</h1>
                     <Column>
                         <img
-                            style={{ width: "100%", objectFit: "contain" }}
+                            style={{ width: "20vw", objectFit: "contain" }}
                             src={require("../../assets/tutoMaiar.png")}
                         />
                         <Text light>
@@ -21,7 +21,7 @@ export const TutoMaiar = () => {
                     </Column>
                     <Column>
                         <img
-                            style={{ width: "100%", objectFit: "contain" }}
+                            style={{ width: "20vw", objectFit: "contain" }}
                             src={require("../../assets/tutoMaiar.png")} />
                         <Text light>
                             Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
@@ -29,7 +29,7 @@ export const TutoMaiar = () => {
                     </Column>
                     <Column>
                         <img
-                            style={{ width: "100%", objectFit: "contain" }}
+                            style={{ width: "20vw", objectFit: "contain" }}
                             src={require("../../assets/tutoMaiar.png")} />
                         <Text light>
                             Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet

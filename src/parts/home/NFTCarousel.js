@@ -68,7 +68,7 @@ const NFTCarousel = (props) => {
     }, [carouselItems]);
 
     return (
-        <Panel style={{ height: "85vh", alignItems: "flex-start" }}>
+        <Panel style={{ height: "85vh", alignItems: "flex-start", backgroundColor: "#FFF"}}>
             <Column style={{ width: "100%"}}>
 
                 <h3 style={{ fontSize: "1.75rem" }}>
