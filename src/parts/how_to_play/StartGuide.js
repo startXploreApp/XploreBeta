@@ -11,9 +11,9 @@ import { SubTitle } from "../../components/Titles";
 
 const StartGuide = () => {
     return (
-        <Panel>
+        <Panel firstPage>
             <BackgroundImage image={require("../../assets/pexels-alena-darmel-7710214.jpg")} />
-            <Column style={{ alignItems: "flex-start", justifyContent: "flex-end", color: "white", height: "100vh" }}>
+            <Column style={{ alignItems: "flex-start", justifyContent: "flex-end", color: "white", height: "100%" }}>
                 <h1>Le guide du parfait explorateur</h1>
                 <div style={{ color: "#D0D0D0" }}>
                     <SubTitle>Comment démarrer l’aventure ?</SubTitle>

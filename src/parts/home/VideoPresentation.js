@@ -3,7 +3,7 @@ import Column from "../../components/Column";
 
 const VideoPresentation = () => {
     return (
-        <Panel style={{ height: "75vh" }}>
+        <Panel style={{ height: "75vh", backgroundColor: "#E5E5E5" }}>
             <Column style={{ width: "100vw", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
                 <iframe
                     style={{ borderRadius: "1rem" }}

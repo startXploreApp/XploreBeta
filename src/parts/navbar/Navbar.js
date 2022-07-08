@@ -15,10 +15,6 @@ const NavbarWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    z-index : 1000;
-    position : absolute;
-    top:0;
-    left:0;
 `;
 
 const NavbarLogo = styled.img`
@@ -45,7 +41,7 @@ const NavbarRow = styled.div`
     gap: 1rem;
 `;
 
-const NavbarListItem = styled.li`
+export const NavbarListItem = styled.li`
     list-style: none;
     transition: all 0.2s ease-in-out;
     color: ${props => props.active ? props.theme.colors.primary : props.lightMode ? "#000" : "#FFF"};
@@ -56,7 +52,7 @@ const NavbarListItem = styled.li`
     }
 `;
 
-const NavbarList = styled.ul`
+export const NavbarList = styled.ul`
     display: flex;
     align-content: center;
     gap: 6rem;
@@ -64,10 +60,10 @@ const NavbarList = styled.ul`
 
 const NavbarIcon = styled(FontAwesomeIcon)`
     transition: color 0.2s ease-in-out;
-
+    color: ${props => props.active ? props.theme.colors.primary : props.lightMode ? "#000" : "#FFF"};
     &:hover {
         cursor: pointer;
-        color: ${props => props.theme.colors.primary};
+        color: #19a544;
     }
 `;
 
@@ -77,22 +73,29 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
     const [lightMode, setLightMode] = useState(true)
 
+    const [navbarLogo, setNavbarLogo] = useState(null);
+
     useEffect(() => {
         switch (currentPage) {
             case "/":
-                setLightMode(true)
+                setLightMode(false);
+                setNavbarLogo(require("../../assets/logo_white.svg").default);
                 break;
             case "/how-to-play":
-                setLightMode(false)
+                setLightMode(false);
+                setNavbarLogo(require("../../assets/logo_white.svg").default);
                 break;
             case "/litepaper":
-                setLightMode(true)
+                setLightMode(true);
+                setNavbarLogo(require("../../assets/logo_black.svg").default);
                 break;
             case "/team":
-                setLightMode(true)
+                setLightMode(true);
+                setNavbarLogo(require("../../assets/logo_black.svg").default);
                 break;
             default:
-                setLightMode(true)
+                setLightMode(true);
+                setNavbarLogo(null);
                 break;
         }
     }, [currentPage])
@@ -106,8 +109,10 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
     return (
         <NavbarWrapper>
-            <NavbarLogo
-                src={require("../../assets/logo_color.svg").default} />
+            { navbarLogo !== null ?
+                <NavbarLogo
+                    src={navbarLogo} alt="logo_navbar"/> : null
+            }
 
             <NavbarList>
                 {tabs.map((item) => (
@@ -125,12 +130,24 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
             <NavbarCol>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon icon={faDiscord} style={{ fontSize: "28px" }} />
-                    <NavbarIcon icon={faTwitter} style={{ fontSize: "28px" }} />
+                    <NavbarIcon
+                        lightMode={lightMode}
+                        icon={faDiscord}
+                        style={{ fontSize: "28px" }} />
+                    <NavbarIcon
+                        lightMode={lightMode}
+                        icon={faTwitter}
+                        style={{ fontSize: "28px" }} />
                 </NavbarRow>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon icon={faInstagram} style={{ fontSize: "28px" }} />
-                    <NavbarIcon icon={faTelegram} style={{ fontSize: "28px" }} />
+                    <NavbarIcon
+                        lightMode={lightMode}
+                        icon={faInstagram}
+                        style={{ fontSize: "28px" }} />
+                    <NavbarIcon
+                        lightMode={lightMode}
+                        icon={faTelegram}
+                        style={{ fontSize: "28px" }} />
                 </NavbarRow>
             </NavbarCol>
 
