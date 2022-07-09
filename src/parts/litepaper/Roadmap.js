@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Row from "../../components/Row";
 import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 
@@ -115,9 +116,17 @@ const Roadmap = () => {
                     <div style={{ width: "100%", display: "grid", gridTemplateColumns: "1fr 4fr", gridTemplateRows: "repeat(3, 1fr)" }}>
                         { roadmap["2022"].map(roadmap_element => (
                             <>
-                            <RoadmapQ gradient={roadmap_element.gradient}>
-                                {roadmap_element.title}
-                            </RoadmapQ>
+                            <Row style={{ justifyContent: "center" }}>
+                                <img 
+                                    src={roadmap_element.gradient ?
+                                        require("../../assets/green_cross.svg").default :
+                                        require("../../assets/black_cross.svg").default
+                                    } 
+                                    alt="cross" />
+                                <RoadmapQ gradient={roadmap_element.gradient}>
+                                    {roadmap_element.title}
+                                </RoadmapQ>
+                            </Row>
                             <RoadmapCard gradient={roadmap_element.gradient}>
                                 <h6>
                                 {roadmap_element.content.map(roadmap_subtitle => (
@@ -132,7 +141,17 @@ const Roadmap = () => {
                     <div style={{ width: "100%", display: "grid", gridTemplateColumns: "1fr 4fr", gridTemplateRows: "repeat(2, 1fr)" }}>
                         { roadmap["2023"].map(roadmap_element => (
                             <>
-                            <RoadmapQ>{roadmap_element.title}</RoadmapQ>
+                            <Row style={{ justifyContent: "center" }}>
+                                <img 
+                                    src={roadmap_element.gradient ?
+                                        require("../../assets/green_cross.svg").default :
+                                        require("../../assets/black_cross.svg").default
+                                    } 
+                                    alt="cross" />
+                                <RoadmapQ gradient={roadmap_element.gradient}>
+                                    {roadmap_element.title}
+                                </RoadmapQ>
+                            </Row>
                             <RoadmapCard gradient={roadmap_element.gradient}>
                                 <h6>
                                 {roadmap_element.content.map(roadmap_subtitle => (
