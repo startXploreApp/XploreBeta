@@ -40,6 +40,12 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 800;
     }
 
+    h5 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 30px;
+    }
+
     h6 {
         font-size: 1rem;
         font-weight: 600;

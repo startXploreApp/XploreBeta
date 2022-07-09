@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Panel = styled.div`
     width: 100%;
@@ -8,7 +8,7 @@ const Panel = styled.div`
     flex-direction: row;
     align-items: center;
     border: 2px dashed blue;
-    background-color : ${props => props.backgroundColor ? props.backgroundColor : "none"}
+    background-color : ${props => props.backgroundColor ? props.backgroundColor : "none"};
 `;
 
 export default Panel;

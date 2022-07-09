@@ -15,6 +15,7 @@ const NavbarWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    background-color: ${props => props.backgroundColor};
 `;
 
 const NavbarLogo = styled.img`
@@ -108,7 +109,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     ]
 
     return (
-        <NavbarWrapper>
+        <NavbarWrapper backgroundColor={lightMode ? "#fff" : "none"}>
             { navbarLogo !== null ?
                 <NavbarLogo
                     src={navbarLogo} alt="logo_navbar"/> : null

@@ -6,6 +6,8 @@ import Navbar from "./parts/navbar/Navbar";
 import DarkTheme from './theme/Theme';
 import { ThemeProvider } from 'styled-components';
 import Footer from "./parts/footer/Footer";
+import Litepaper from "./parts/litepaper/Litepaper";
+import NewsLetter from "./parts/newsletter/Newsletter";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -34,7 +36,9 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/how-to-play" element={<HowToPlay />} />
+                <Route path="/litepaper" element={<Litepaper />} />
             </Routes>
+            <NewsLetter />
             <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </BrowserRouter>
     );
