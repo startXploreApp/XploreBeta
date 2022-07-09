@@ -48,7 +48,7 @@ const MissionTitle = styled.p`
     position: relative;
 
     &::after {
-        content: "${props => props.after}";
+        content: "${props => props.children}";
         position: absolute;
         font-size: 4rem;
         opacity: 0.2;
@@ -69,7 +69,7 @@ const Missions = () => {
                         <Column style={{ padding: "0", gap: "1.25rem"}}>
                             <Row style={{ gap: "1rem"}}>
                                 <FontAwesomeIcon icon={element.logo} style={{ color: "white", fontSize: "2.875rem"}} />
-                                <MissionTitle after={element.title}>
+                                <MissionTitle>
                                     { element.title }
                                 </MissionTitle>
                             </Row>
