@@ -8,7 +8,7 @@ import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const WhatIsXplore = () => {
     return (
-        <Panel firstPage style={{ height: "auto" }}>
+        <Panel firstPage backgroundColor="#F8F9FA" style={{ height: "auto" }}>
             <div style={{ width: "100%", height: "100%", display: "grid", gridTemplateColumns: "40% 60%"}}>
                 <Column style={{ height: "100%", justifyContent: "space-evenly" }}>
                     <Column style={{width: "100%", padding: "0"}}>
