@@ -44,7 +44,6 @@ const Home = () => {
             <NFTCarousel images={images} />
             <QuestionPlease image={require("../../assets/rocket_raccoon_0.jpg")}/>
             <Partners partners={partners} />
-            <NewsLetter />
         </>
     );
 

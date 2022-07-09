@@ -6,7 +6,6 @@ const Row = styled.div`
     align-items: center;
     padding: 0;
     gap: 1rem;
-    /* border: 2px dashed paleturquoise; */
 `;
 
 export default Row;

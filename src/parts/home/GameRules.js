@@ -182,13 +182,14 @@ const PhasesWrapper = styled.div`
         border-bottom: 2px solid #7CC295;
         left:0;
         top: 50%;
-        z-index: -1;
+        z-index: 0;
     }
 `;
 
 const StepRect = styled.div`
     width: 20px;
     height: 18px;
+    z-index: 1;
     background: #7CC295;
     border-radius: 2px;
     position: relative;
