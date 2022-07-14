@@ -5,6 +5,12 @@ export const ExpandColumnWrapper = styled.div`
     display: flex;
     height: 100vh;
     width: 100%;
+    
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
 `;
 
 const ExpandColumn = styled(Column)`
@@ -23,6 +29,12 @@ const ExpandColumn = styled(Column)`
 
     &:hover {
         flex-basis: 60%;
+    }
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        width: 100%;
+        flex-basis: 100%;
+        height: auto;
     }
 
 `;
@@ -50,8 +62,15 @@ export const ExpandColumnContentWrapper = styled.div`
     &:hover {
         p {
             max-width: 50%;
+        }   
+    }
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        &:hover {
+            p{
+                max-width: 100%;
+            }
         }
-            
     }
 `;
 

@@ -21,6 +21,12 @@ const SharingCardTitle = styled.h5`
     text-align: center;
 `;
 
+const SharingsDetails = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 13% 13% 13% 10% 20% 21%;
+`;
+
 const sharings = [
     {
         title: ["Trésor", "final"],
@@ -86,7 +92,7 @@ const ResourceSharing = () => {
             <Column style={{width: "100%"}}>
                 <h3>Répartition des ressources</h3>
                 <Column style={{ width: "100%", gap: "0", padding: "0"}}>
-                    <div style={{ width: "100%", display: "grid", gridTemplateColumns: "10% 13% 13% 13% 10% 20% 21%"}}>
+                    <SharingsDetails>
                         { sharings.map(element => (
                             <SharingCard
                                     isProject={element.isProject}
@@ -106,7 +112,7 @@ const ResourceSharing = () => {
                                 </h2>
                             </SharingCard>
                         ))}
-                    </div>
+                    </SharingsDetails>
                     <div style={{ color: "white", backgroundColor: "#1F2B3A", width: "100%", display: "grid", gridTemplateColumns: "49% 51%" }}>
                         <Row style={{ borderRight: "2px solid #000", justifyContent: "center"}}>
                             <h5>Redistribution</h5>

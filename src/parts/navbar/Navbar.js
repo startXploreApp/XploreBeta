@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import { useEffect, useState } from "react";
 
 const NavbarWrapper = styled.div`
-    border: 2px dashed red;
+    /* border: 2px dashed red; */
     padding: 2.5rem 3.5rem;
     width: 100%;
     height: 10rem;
@@ -57,6 +57,10 @@ export const NavbarList = styled.ul`
     display: flex;
     align-content: center;
     gap: 6rem;
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        gap: 3rem;
+    }
 `;
 
 const NavbarIcon = styled(FontAwesomeIcon)`

@@ -21,6 +21,14 @@ const RoadmapQ = styled.h3`
     align-self: center;
 `;
 
+const RoadmapWrapper = styled(Column)`
+    width: 85%;
+
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        width: 100%;
+    }
+`;
+
 const RoadmapCard = styled.div`
     color: #F8F9FA;
     width: 50vw;
@@ -109,7 +117,7 @@ const Roadmap = () => {
                 style={{ zIndex: "1", position: "absolute", top: "0", right: "4%" }}
                 src={require("../../assets/green_path.svg").default}
                 alt="green_path" />
-            <Column style={{ width: "80%"}}>
+            <RoadmapWrapper>
                 <h3>Roadmap</h3>
                 <Column style={{ width: "100% ", padding: "0"}}>
                     <h2>2022</h2>
@@ -163,7 +171,7 @@ const Roadmap = () => {
                         ))}
                     </div>
                 </Column>
-            </Column>
+            </RoadmapWrapper>
         </Panel>
     );
 }

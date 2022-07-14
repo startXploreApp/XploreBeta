@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NewsLetter = () => {
     return(
-        <Panel style={{ height: "22vh", backgroundColor: "#1F2B3A", position: "relative", overflowY: "hidden" }}>
+        <Panel style={{ height: "auto", backgroundColor: "#1F2B3A", position: "relative", overflowY: "hidden" }}>
             <Ellipse width="50px" height="50px" top="12%" left="22%" />
             <Ellipse width="29px" height="29px" top="5%" left="26%" />
             <Ellipse width="85px" height="85px" top="12%" left="68%" />
             <Ellipse width="99px" height="99px" top="4%" left="94%" />
             <Ellipse width="384px" height="220px" top="43%" left="68%"/>
-            <div style={{ padding: "2.5rem 3.75rem", gap: "0.625rem", display: "grid", gridTemplateColumns: "75% 25%", width: "100%" }}>
+            <NewsletterWrapper>
                 <Column style={{ gap: "0.3rem", alignItems: "flex-start", padding: "0px", isolation: "isolate" }}>
                     <h2 style={{ fontFamily: "Poppins", color: "white" }}>NewsLetter</h2>
                     <p style={{ fontFamily: "Inter", color: "#D0D0D0", fontSize: "1rem", fontWeight: "500" }}>Rejoignez notre liste de diffusion pour rester au courant de nos dernières fonctionnalités, obtenir des conseils et  des astuces pour naviguer dans X’Plore.</p>
@@ -25,13 +25,30 @@ const NewsLetter = () => {
                         <FontAwesomeIcon icon={faPaperPlane} size={"xl"} />
                     </Button>
                 </Column>
-            </div>
+            </NewsletterWrapper>
         </Panel>
     );
 }
 
 export default NewsLetter;
+    
 
+const NewsletterWrapper = styled.div`
+    padding: 2.5rem 3.75rem;
+    gap: 0.625rem;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    width: 100%;
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        grid-template-columns: 55% 45%;
+    }
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        grid-template-columns: 100%;
+        gap: 2rem;
+    }
+`;
 
 
 const Ellipse = styled.div`

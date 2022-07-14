@@ -39,7 +39,7 @@ const NFTCarousel = (props) => {
                         ],
                         {
                             duration: 450,
-                            fill: 'forwards'
+                            // fill: 'forwards'
                         }
                     );
                 });
@@ -61,14 +61,14 @@ const NFTCarousel = (props) => {
                             element.cancel();
                         })
                     }, 260)
-                }, 425));
+                }, 415));
             }, 5000);
             return () => clearInterval(timer);
         }
     }, [carouselItems]);
 
     return (
-        <Panel style={{ height: "85vh", alignItems: "flex-start", backgroundColor: "#FFF"}}>
+        <Panel style={{ height: "auto", alignItems: "flex-start", backgroundColor: "#FFF"}}>
             <Column style={{ width: "100%"}}>
 
                 <h3 style={{ fontSize: "1.75rem" }}>
@@ -121,14 +121,13 @@ const CarouselContent = styled.div`
     transition: all 250ms linear;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
+    grid-auto-flow: column;
     gap: 1rem;
 `;
 
 const CarouselItem = styled(NFTImage)`
     justify-self: center;
-    height: 400px;
+    height: 25rem;
 `;
 
 export default NFTCarousel;
