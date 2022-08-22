@@ -7,7 +7,7 @@ const Panel = styled.div`
     overflow : hidden;
     flex-direction: row;
     align-items: center;
-    border: 2px dashed blue;
+    /* border: 2px dashed blue; */
     background-color : ${props => props.backgroundColor ? props.backgroundColor : "none"};
 `;
 
