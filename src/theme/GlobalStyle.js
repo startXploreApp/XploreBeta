@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;    
         scrollbar-width: none;
         line-height: 1.6;
         /* Footer support */

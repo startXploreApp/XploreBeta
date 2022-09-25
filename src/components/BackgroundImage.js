@@ -6,7 +6,7 @@ import styled, { css } from "styled-components";
 const Overlay = styled.div`
     background-color : black;
     opacity : ${props => props.opacity};
-    width : 100vw;
+    width : 100%;
     height : 100vh;
     position: absolute;
     top: 0;
@@ -18,7 +18,7 @@ export const BackgroundImage = ({ image, opacity="50%", imgStyle={} }) => {
     return (
         <>
             <Overlay opacity={opacity}/>
-            <img src={image} style={{ ...imgStyle, position: "absolute", top: 0, left: 0, width: '100vw', height: '100vh', objectFit: "cover", zIndex: -2 }} />
+            <img src={image} style={{ ...imgStyle, position: "absolute", top: 0, left: 0, width: '100%', height: '100vh', objectFit: "cover", zIndex: -2 }} />
         </>
     )
 

@@ -8,32 +8,8 @@ export const TutoTicket = () => {
         <Panel backgroundColor="#F8F9FA" style={{ height: "auto" }}>
             <Column style={{ width: "100%", color: "#111113", height: "100%" }}>
                 <h2 >Tutoriel pour acheter un ticket</h2>
-                <Row style={{ width: "100%", justifyContent: "space-between", alignItems: "flex-end" }}>
-                    <h1 style={{ fontSize: "10rem" }}>2</h1>
-                    <Column>
-                        <img
-                            style={{ width: "20vw", objectFit: "contain" }}
-                            src={require("../../assets/tutoMaiar.png")} />
-                        <Text light>
-                            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                        </Text>
-                    </Column>
-                    <Column>
-                        <img
-                            style={{ width: "20vw", objectFit: "contain" }}
-                            src={require("../../assets/tutoMaiar.png")} />
-                        <Text light>
-                            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                        </Text>
-                    </Column>
-                    <Column>
-                        <img
-                            style={{ width: "20vw", objectFit: "contain" }}
-                            src={require("../../assets/tutoMaiar.png")} />
-                        <Text light>
-                            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                        </Text>
-                    </Column>
+                <Row style={{ width: "100%", justifyContent: "center"}}>
+                    <h3 style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#007BFF" }}>A venir prochainement !</h3>
                 </Row>
             </Column>
         </Panel>
