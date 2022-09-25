@@ -12,7 +12,7 @@ const Team = () => {
     return (
         <>
             <Panel style={{ position: "relative" }} firstPage>
-                <img alt="team" src={require("../../assets/pexels-pierre-blaché-2901209.jpg")} style={{ height: "100%", width: "100%", objectFit: "cover", position: "absolute" }} />
+                <img alt="team" src={require("../../assets/team.png")} style={{ height: "100%", width: "100%", objectFit: "cover", position: "absolute" }} />
                 <Column style={{ alignItems: "flex-start", justifyContent: "flex-end", color: "white", height: "100%", zIndex: 1 }}>
                     <h1>Découvrez notre équipe d’aventuriers</h1>
                     <Row style={{ gap: "1.5rem" }}>
