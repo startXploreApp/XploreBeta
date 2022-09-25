@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Link, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { faDiscord, faInstagram, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Button from "../../components/Button";
 import { useEffect, useState } from "react";
+import { Icon } from "../../components/Icon";
 
 const NavbarWrapper = styled.div`
-    border: 2px dashed red;
     padding: 2.5rem 3.5rem;
     width: 100%;
     height: 10rem;
@@ -59,14 +59,7 @@ export const NavbarList = styled.ul`
     gap: 6rem;
 `;
 
-const NavbarIcon = styled(FontAwesomeIcon)`
-    transition: color 0.2s ease-in-out;
-    color: ${props => props.active ? props.theme.colors.primary : props.lightMode ? "#000" : "#FFF"};
-    &:hover {
-        cursor: pointer;
-        color: #19a544;
-    }
-`;
+
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
 
@@ -110,9 +103,9 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
     return (
         <NavbarWrapper backgroundColor={lightMode ? "#fff" : "none"}>
-            { navbarLogo !== null ?
+            {navbarLogo !== null ?
                 <NavbarLogo
-                    src={navbarLogo} alt="logo_navbar"/> : null
+                    src={navbarLogo} alt="logo_navbar" /> : null
             }
 
             <NavbarList>
@@ -131,21 +124,21 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
             <NavbarCol>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon
+                    <Icon
                         lightMode={lightMode}
                         icon={faDiscord}
                         style={{ fontSize: "28px" }} />
-                    <NavbarIcon
+                    <Icon
                         lightMode={lightMode}
                         icon={faTwitter}
                         style={{ fontSize: "28px" }} />
                 </NavbarRow>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <NavbarIcon
+                    <Icon
                         lightMode={lightMode}
                         icon={faInstagram}
                         style={{ fontSize: "28px" }} />
-                    <NavbarIcon
+                    <Icon
                         lightMode={lightMode}
                         icon={faTelegram}
                         style={{ fontSize: "28px" }} />
