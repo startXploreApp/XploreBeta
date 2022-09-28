@@ -11,6 +11,7 @@ const ScrollElement = ({ text, img }) => {
         <ScrollElementWrapper>
             <img
                 alt="tuto_maiar"
+                draggable={false}
                 style={{ width: "15.625rem", objectFit: "contain", boxShadow: "inset 0px -4px 32px rgba(0, 0, 0, 0.25)", borderRadius: "0.5rem" }}
                 src={img}
             />
@@ -28,6 +29,11 @@ const ScrollElementWrapper = styled.div`
     box-sizing: content-box;
     padding: 2.5rem 3.75rem;
     gap: 2rem;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
     
 
     img {
