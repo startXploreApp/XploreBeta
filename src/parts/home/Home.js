@@ -30,7 +30,7 @@ const Home = () => {
     return (
         <>
             <StartExplore />
-            <VideoPresentation />
+            {/* <VideoPresentation /> */}
             <OnHover />
             <GameRules />
             <Panel style={{ height: "300px" }}>
@@ -41,9 +41,9 @@ const Home = () => {
                         alt="4" />
                 </Column>
             </Panel>
-            <NFTCarousel images={images} />
+            {/* <NFTCarousel images={images} /> */}
             <QuestionPlease image={require("../../assets/rocket_raccoon_0.jpg")}/>
-            <Partners partners={partners} />
+            {/* <Partners partners={partners} /> */}
         </>
     );
 

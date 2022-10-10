@@ -145,8 +145,10 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                 </NavbarRow>
             </NavbarCol>
 
-            <Button primary>
-                <h6>Partir à l'aventure</h6>
+            <Button primary style={{ position: "relative" }}>
+                <h6>
+                    Partir à l'aventure
+                </h6>
             </Button>
         </NavbarWrapper>
     );

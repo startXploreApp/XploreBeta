@@ -65,6 +65,7 @@ export const TeamPresentation = () => {
                 <Column style={{ width: "100%" }}>
                     <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
                         <Profil
+                            image={require("../../assets/team_alex.jpg")}
                             lightMode={false}
                             icon="CEO"
                             name="Alexandre Siguret"
@@ -74,6 +75,7 @@ export const TeamPresentation = () => {
                             social_media={faLinkedin}
                             social_media_username="Alexandre Siguret"/>
                         <Profil
+                            image={require("../../assets/team_tom.jpg")}
                             lightMode={false}
                             icon="CPO"
                             name="Tom Orvain"
@@ -89,14 +91,16 @@ export const TeamPresentation = () => {
                 <Column style={{ width: "100%" }}>
                     <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
                         <Profil
+                            image={require("../../assets/team_pierre.jpg")}
                             icon="CTO"
                             coFounders
                             name="Pierre Le Dez"
-                            missions={["Technical lead", "Developer"]}
+                            missions={["Technical lead", "Develop"]}
                             role="Chief Technical Officer"
                             social_media={faLinkedin}
                             social_media_username="Pierre LE DEZ"/>
                         <Profil
+                            image={require("../../assets/team_lise.jpg")}
                             coFounders
                             icon="CCO"
                             name="Lise"
@@ -111,17 +115,19 @@ export const TeamPresentation = () => {
                 <Column style={{ width: "100%" }}>
                     <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
                         <Profil
+                            image={require("../../assets/team_ines.jpeg")}
                             icon="Mar"
                             name="Ines Zaïdi"
                             missions={["Marketing"]}
-                            role="Responsable Marketing"
+                            role="Marketing Manager"
                             social_media={faLinkedin}
                             social_media_username="Ines Zaïdi" />
                         <Profil
+                            image={require("../../assets/team_math.jpg")}
                             icon="Com"
                             name="Mathieu"
-                            missions={["Communications", "Réseaux sociaux"]}
-                            role="Response Communication"
+                            missions={["Communication", "Social media"]}
+                            role="Communication Manager"
                             social_media={faLinkedin}
                             social_media_username="Mathieu" />
                     </div>
@@ -131,10 +137,11 @@ export const TeamPresentation = () => {
                 <Column style={{ width: "100%" }}>
                     <Row style={{ width: "100%", justifyContent: "space-around" }}>
                         <Profil
+                            image={require("../../assets/team_romain.jpg")}
                             lightMode={false}
-                            name="Pierre Siguret"
-                            missions={["Réseaux sociaux"]}
-                            role="Social Media Manager"
+                            name="Romain Martineau"
+                            missions={["Develop"]}
+                            role="Fullstack developer"
                             social_media={faLinkedin}
                             social_media_username="Pierre Siguret" />
                     </Row>

@@ -27,7 +27,7 @@ const Team = () => {
                 </Column>
             </Panel>
             <TeamPresentation />
-            <Partners />
+            {/* <Partners /> */}
             <Panel style={{ height: "min-content" }}>
                 <Column style={{ padding: "0", width: "100%", }}>
                     <img
