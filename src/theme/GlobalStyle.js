@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Poppins', sans-serif;
-        background-color: ${ ({theme}) => theme.colors.background };
+        /* background-color: ${ ({theme}) => theme.colors.background }; */
+        background-color: black;
     }
 
     h1, h2, h3, h4, h5, h6 {

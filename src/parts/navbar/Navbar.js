@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { faDiscord, faInstagram, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faInstagram, faTelegram, faTwitter, faFacebookF, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import Button from "../../components/Button";
 import { useEffect, useState } from "react";
 import { Icon } from "../../components/Icon";
@@ -19,8 +19,8 @@ const NavbarWrapper = styled.div`
 `;
 
 const NavbarLogo = styled.img`
-    width: 150px;
-    height: 49.5px;
+    width: 250px;
+    height: 100px;
     object-fit: contain;
     &:hover {
         cursor: pointer;
@@ -60,94 +60,55 @@ export const NavbarList = styled.ul`
 `;
 
 
-
 const Navbar = ({ currentPage, setCurrentPage }) => {
 
-    const navigate = useNavigate();
-
-    const [lightMode, setLightMode] = useState(true)
-
-    const [navbarLogo, setNavbarLogo] = useState(null);
-
-    useEffect(() => {
-        switch (currentPage) {
-            case "/":
-                setLightMode(false);
-                setNavbarLogo(require("../../assets/logo_white.svg").default);
-                break;
-            case "/how-to-play":
-                setLightMode(false);
-                setNavbarLogo(require("../../assets/logo_white.svg").default);
-                break;
-            case "/litepaper":
-                setLightMode(true);
-                setNavbarLogo(require("../../assets/logo_black.svg").default);
-                break;
-            case "/team":
-                setLightMode(true);
-                setNavbarLogo(require("../../assets/logo_black.svg").default);
-                break;
-            default:
-                setLightMode(true);
-                setNavbarLogo(null);
-                break;
-        }
-    }, [currentPage])
-
-    const tabs = [
-        ["/", "Accueil"],
-        ["/how-to-play", "Comment jouer"],
-        ["/litepaper", "Litepaper"],
-        ["/team", "L'équipe"]
-    ]
+    const [lightMode, setLightMode] = useState(false)
 
     return (
-        <NavbarWrapper backgroundColor={lightMode ? "#fff" : "none"}>
-            {navbarLogo !== null ?
-                <NavbarLogo
-                    src={navbarLogo} alt="logo_navbar" /> : null
-            }
-
-            <NavbarList>
-                {tabs.map((item) => (
-                    <NavbarListItem
-                        lightMode={lightMode}
-                        active={currentPage === item[0]}
-                        onClick={() => {
-                            setCurrentPage(item[0])
-                            navigate(item[0])
-                        }}>
-                        <h6> {item[1]} </h6>
-                    </NavbarListItem>
-                ))}
-            </NavbarList>
+        <NavbarWrapper backgroundColor={"none"}>
+            <NavbarLogo
+                src={require("../../assets/white.png")} alt="logo_navbar" />
 
             <NavbarCol>
-                <NavbarRow style={{ gap: "1rem" }}>
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faDiscord}
-                        style={{ fontSize: "28px" }} />
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faTwitter}
-                        style={{ fontSize: "28px" }} />
-                </NavbarRow>
-                <NavbarRow style={{ gap: "1rem" }}>
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faInstagram}
-                        style={{ fontSize: "28px" }} />
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faTelegram}
-                        style={{ fontSize: "28px" }} />
+                <NavbarRow style={{ gap: "1.5rem" }}>
+                    <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faDiscord}
+                            style={{ fontSize: "32px" }} />
+                    </a>
+                    <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faLinkedinIn}
+                            style={{ fontSize: "32px" }} />
+                    </a>
+                    <a href={"https://twitter.com/app_xplore"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faTwitter}
+                            style={{ fontSize: "32px" }} />
+                    </a>
+                    <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faFacebookF}
+                            style={{ fontSize: "32px" }} />
+                    </a>
+                    <a href={"https://www.instagram.com/xplore.app.project/"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faInstagram}
+                            style={{ fontSize: "32px" }} />
+                    </a>
+                    <a href={"https://t.me/XploreApp"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faTelegram}
+                            style={{ fontSize: "32px" }} />
+                    </a>
                 </NavbarRow>
             </NavbarCol>
-
-            <Button primary>
-                <h6>Partir à l'aventure</h6>
-            </Button>
         </NavbarWrapper>
     );
 

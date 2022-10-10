@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import Panel from "../../components/Panel";
@@ -7,57 +8,59 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
+import useLongPress from "../../hooks/useLongPress";
+import whitepaper from '../../media/whitepaper.pdf';
 
-const RedDot = styled.div`
-    width: 2.2rem;
-    height: 2.2rem;
-    background-color: #FF2521;
-    border-radius: 50%;
-    display: inline-block;
-`;
+const background_images = [
+    [require("../../assets/pexels-tobias-aeppli-1125272.jpg"), "-1"],
+    [require("../../assets/background_2.png"), "-1"],
+    [require("../../assets/background_3.png"), "-1"],
+    [require("../../assets/background_4.png"), "-1"],
+    [require("../../assets/background_5.png"), "-1"],
+    [require("../../assets/background_6.png"), "-1"]
+]
 
 const StartExplore = () => {
+
+    const [currentBackground, setCurrentBackground] = useState(0)
+
+    const changeBackground = () => {
+        console.log("change background now");
+        if (currentBackground < (background_images.length - 1)) {
+            setCurrentBackground(currentBackground+1)
+        } else {
+            setCurrentBackground(0)
+        }
+    }
+
+    const clickLongPress = useLongPress(changeBackground, 2000);
+
     return (
-        <Panel firstPage>
+        <Panel
+            {...clickLongPress}
+            firstPage>
             <BackgroundImage
                 opacity="20%"
-                image={require("../../assets/pexels-tobias-aeppli-1125272.jpg")}
-                imgStyle={{ transform: "scaleX(-1)"}}/>
-            <Column style={{ isolation: "isolate", marginTop: "2rem", alignContent: "flex-end", justifyContent: "space-between", height: "85%" }}>
+                image={background_images[currentBackground][0]}
+                imgStyle={{ transform: `scaleX(${background_images[currentBackground][1]})`}}/>
 
-                <Column style={{padding: "0"}}>
-                    <Row>
-                        <RedDot />
-                        <h1 style={{ color: "white"}} >
-                            Les tickets sont en ventes !
-                        </h1>
-                    </Row>
-                    <Button primary>
-                        <h6>
-                            Acheter un ticket maintenant 
-                        </h6>
-                        <FontAwesomeIcon icon={faArrowRight} size={"xl"} />
+                <a href={whitepaper} target="_blank" rel="noreferrer"> 
+                    <Button primary style={{ padding: "1.5rem", position: "absolute", top: "40%", left: "50%", transform: "translate(-50%, 0)"}}>
+                        <h5 style={{ fontSize: "2rem"}}>
+                            Whitepaper
+                        </h5>
                     </Button>
-                </Column>
+                </a>
 
-                <Column style={{padding: "0"}}>
-                    <h2 style={{ lineHeight: "42px", color: "white" }}>
-                        Bienvenue dans le premier jeu décentralisé <br />
-                        qui vous récompense pour 
-                        <span style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span>
-                    </h2>
-                    <Row style={{ gap: "1.5rem" }}>
-                        <Button>
-                            <h6>En savoir plus</h6>
-                        </Button>
-                        <Button primary>
-                            <h6>Partir à l'aventure</h6>
-                            <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                        </Button>
-                    </Row>
-                </Column>
+                <h2 style={{ position: "absolute", bottom: "5%", left: "2%", lineHeight: "42px", color: "white" }}>
+                    Bienvenue dans le premier jeu décentralisé <br />
+                    qui vous récompense pour 
+                    <span style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>voyager</span>
+                </h2>
 
-            </Column>
+                <h6 style={{ position: "absolute", bottom: "5%", right: "5%", color: "white", transform: "rotate(-10.67deg)", opacity: "0.8"}}>
+                    Maintien le clic enfoncé pour <br />changer d'environnement
+                </h6>
         </Panel>
     );
 }
