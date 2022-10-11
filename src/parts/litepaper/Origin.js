@@ -1,11 +1,25 @@
 import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import Button from "../../components/Button";
+import styled from "styled-components";
+
+const OriginWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        grid-template-columns: 1fr;
+        
+        img {
+            display: none;
+        }
+    }
+`;
+
 
 const Origin = () => {
     return (
         <Panel style={{height: "auto"}} backgroundColor="#F8F9FA">
-            <div style={{ display: "grid", gridTemplateColumns: "50% 50%"}}>
+            <OriginWrapper>
                 <Column style={{ justifyContent: "center"}}>
                     <h3 style={{ fontSize: "1.75rem" }}>
                         Les origines
@@ -31,7 +45,7 @@ const Origin = () => {
                     </Button>
                 </Column>
                 <img src={require("../../assets/pexels-pixabay-161853.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover"}} alt="origin" />
-            </div>
+            </OriginWrapper>
         </Panel>
     );
 }

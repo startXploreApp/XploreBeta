@@ -6,8 +6,8 @@ import ExpandColumn, { ExpandColumnContentWrapper, ExpandColumnWrapper } from ".
 
 const OnHover = () => {
     return (
-        <Panel>
-            <Row style={{ width: "100%" }}>
+        <Panel style={{ height: "auto" }}>
+            <Row style={{ width: "100%", height: "100%" }}>
                 <ExpandColumnWrapper>
 
                     <ExpandColumn style={{ position: "relative" }}>

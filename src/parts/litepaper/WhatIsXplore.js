@@ -5,11 +5,33 @@ import { GreenLine } from '../../components/GreenTitle';
 import Panel from '../../components/Panel';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
+import styled from 'styled-components';
+
+
+const WhatIsXploreWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        grid-template-columns: 50% 50%;
+    }
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        grid-template-columns: 1fr;
+        h1 {
+            width: max-content;
+            font-size: 3rem;
+        }
+        img {
+            display: none;
+        }
+    }
+`;
 
 const WhatIsXplore = () => {
     return (
-        <Panel firstPage backgroundColor="#F8F9FA" style={{ height: "auto" }}>
-            <div style={{ width: "100%", height: "100%", display: "grid", gridTemplateColumns: "40% 60%"}}>
+        <Panel firstPage backgroundColor="#F8F9FA" >
+            <WhatIsXploreWrapper>
                 <Column style={{ height: "100%", justifyContent: "space-evenly" }}>
                     <Column style={{width: "100%", padding: "0"}}>
                         <GreenLine style={{ margin: "0", width: "calc(100% + 3.75rem)" }} />
@@ -43,7 +65,7 @@ const WhatIsXplore = () => {
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     src={require("../../assets/pexels-fauxels-3184360.jpg")}
                     alt="litepaper"/>
-            </div>
+            </WhatIsXploreWrapper>
         </Panel>
     );
 }

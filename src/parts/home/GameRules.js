@@ -9,6 +9,20 @@ import Tooltip from "../../components/Tooltip";
 import GreenCardWrapper, { GreyCardWrapper, GreyCardText} from "../../components/GreenCard";
 
 
+const GridWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        grid-template-columns: 1fr;
+    }
+`;
+
+
 
 const GameRules = () => {
     return (
@@ -16,7 +30,7 @@ const GameRules = () => {
             <Column style={{ width: "100%", gap: "24px" }}>
                 <h3>Règles du jeu</h3>
                 <Column style={{ width: "100%", padding: "0" }}>
-                    <div style={{ width: "100%", columnGap: "1rem", display: "grid", gridTemplateColumns: "50% 50%", gridTemplateRows: "1" }}>
+                    <GridWrapper>
                         <Column style={{ width: "100%", height: "auto", justifyContent: "center", gap: "3rem" }}>
                             <GreenCardWrapper style={{ position: "relative", left: "10%", top: "-7%" }}>
                                 <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
@@ -118,14 +132,14 @@ const GameRules = () => {
                                 </GreyCardText>
                             </GreyCardWrapper>
                         </Column>
-                    </div>
+                    </GridWrapper>
                     <PhasesWrapper>
-                        <PhaseRect width="200px" height="200px" firstOne>
-                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                        <PhaseRect width="12.5rem" height="12.5rem" firstOne>
+                            <PhaseRectText>
                                 <h6>PHASE 1</h6>
                                 <p>7390 tickets</p>
                                 <p>20 villes</p>
-                            </div>
+                            </PhaseRectText>
                         </PhaseRect>
                         {
                             [...Array(5).keys()].map(j => (
@@ -136,12 +150,12 @@ const GameRules = () => {
                                 </StepRect>
                             ))
                         }
-                        <PhaseRect width="150px" height="150px">
-                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                                <h6>PHASE 2</h6>
-                                <p>739 tickets</p>
-                                <p>Régional</p>
-                            </div>
+                        <PhaseRect width="9.375rem" height="9.375rem">
+                            <PhaseRectText>
+                                <h6 style={{ width: "max-content" }}>PHASE 2</h6>
+                                <p style={{ width: "max-content" }}>739 tickets</p>
+                                <p style={{ width: "max-content" }}>Régional</p>
+                            </PhaseRectText>
                         </PhaseRect>
                         {
                             [...Array(5).keys()].map(j => (
@@ -152,12 +166,12 @@ const GameRules = () => {
                                 </StepRect>
                             ))
                         }
-                        <PhaseRect width="100px" height="100px">
-                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                                <h6>PHASE 3</h6>
-                                <p>74 tickets</p>
-                                <p>National</p>
-                            </div>
+                        <PhaseRect width="6.25rem" height="6.25rem">
+                            <PhaseRectText>
+                                <h6 style={{ width: "max-content" }}>PHASE 3</h6>
+                                <p style={{ width: "max-content" }}>74 tickets</p>
+                                <p style={{ width: "max-content" }}>National</p>
+                            </PhaseRectText>
                         </PhaseRect>
                         {
                             [...Array(5).keys()].map(j => (
@@ -168,12 +182,12 @@ const GameRules = () => {
                                 </StepRect>
                             ))
                         }
-                        <PhaseRect width="75px" height="75px">
-                            <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                                <h6>PHASE 4</h6>
-                                <p>8 tickets</p>
-                                <p>National</p>
-                            </div>
+                        <PhaseRect width="4.688rem" height="4.688rem">
+                            <PhaseRectText>
+                                <h6 style={{ width: "max-content" }}>PHASE 4</h6>
+                                <p style={{ width: "max-content" }}>8 tickets</p>
+                                <p style={{ width: "max-content" }}>National</p>
+                            </PhaseRectText>
                         </PhaseRect>
                         {
                             [...Array(5).keys()].map(j => (
@@ -184,11 +198,11 @@ const GameRules = () => {
                                 </StepRect>
                             ))
                         }
-                        <PhaseRect width="50px" height="50px">
-                        <div style={{ position: "absolute", width: "100%", top: "100%", marginTop: "0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                        <PhaseRect width="3.125rem" height="3.125rem">
+                            <PhaseRectText>
                                 <h6>FIN</h6>
                                 <p style={{ width: "max-content" }}>1 TRÉSOR</p>
-                            </div>
+                            </PhaseRectText>
                         </PhaseRect>
                     </PhasesWrapper> 
                     <Row style={{ width: "100%", justifyContent: "flex-end", padding: "0", marginTop: "5rem" }}>
@@ -231,17 +245,36 @@ const PhasesWrapper = styled.div`
         top: 50%;
         z-index: 0;
     }
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: flex;
+        justify-content: space-between;
+    }
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        height: auto;
+        flex-direction: column;
+        gap: 5rem;
+        &::after {
+            content: '';
+            width: unset;
+            height: 100%;
+            position: absolute;
+            border-left: 2px solid #7CC295;
+            top: 0;
+            left:50%;
+            z-index: 0;
+        }
+    }
 `;
 
 const StepRect = styled.div`
-    width: 20px;
-    height: 18px;
+    width: 1.25rem;
+    height: 1.125rem;
     z-index: 1;
     background: #7CC295;
     border-radius: 2px;
     position: relative;
     justify-self: center;
-    position: relative;
     transition: all 0.2s ease-in;
 
     &:hover {
@@ -250,6 +283,14 @@ const StepRect = styled.div`
         ${Tooltip} {
             visibility: visible;
         }
+    }
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        width: 0.85rem;
+        height: 0.85rem;
+    }
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
     }
 `;
 
@@ -272,6 +313,28 @@ const PhaseRect = styled.div`
                 z-index: -1;
             }
     `};
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        width: ${props => `calc(0.8 * ${props.width})`};
+        height: ${props => `calc(0.8 * ${props.height})`};
+        border-radius: ${props => `calc(0.16 * 0.8 * ${props.width})`};
+    }
+`;
+
+const PhaseRectText = styled.div`
+    position: absolute;
+    width: 100%;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 100%;
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        top: 50%;
+        left: 10rem;
+        transform: translate(0, -50%);
+    }
 `;
 
 export default GameRules;

@@ -57,6 +57,17 @@ const MissionTitle = styled.p`
     }
 `;
 
+const MissionsGrid = styled.div`
+    width: 100%;
+    display: grid;
+    gap: 4rem 12.125rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        grid-template-columns: 1fr;
+    }
+`;
+
 const Missions = () => {
     return (
         <Panel backgroundColor="#1F2B3A" style={{ height: "auto" }}>
@@ -64,7 +75,7 @@ const Missions = () => {
                 <h3 style={{ fontSize: "1.75rem", color: "white" }}>
                     Nos missions
                 </h3>
-                <div style={{ width: "100%", display: "grid", gap: "4rem 12.125rem", gridTemplateColumns: "repeat(2, 1fr)", gridTemplateRows: "repeat(3, 1fr)" }}>
+                <MissionsGrid>
                     { missions.map((element, index) => (
                         <Column style={{ padding: "0", gap: "1.25rem"}}>
                             <Row style={{ gap: "1rem"}}>
@@ -78,7 +89,7 @@ const Missions = () => {
                             </p>
                         </Column>
                     ))}
-                </div>
+                </MissionsGrid>
             </Column>
         </Panel>
     );

@@ -6,6 +6,7 @@ import Row from "../../components/Row";
 import { faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faDiagramProject, faImage, faPaintbrush, faMobile, faProjectDiagram, faTrophy, faCrown, faComment, faChartColumn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 
 const IconTitle = ({ icon, text }) => {
@@ -17,6 +18,19 @@ const IconTitle = ({ icon, text }) => {
     );
 }
 
+
+
+const ProfilRow = styled.div`
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        grid-template-columns: 1fr;
+        grid-gap: 2.5rem;
+    }
+`;
 
 const Profil = ({ image = require("../../assets/pexels-anna-shvets-5257268.jpg"), missions, coFounders=false, name, role, social_media, social_media_username, social_media_url, lightMode = true, icon }) => {
     return (
@@ -63,7 +77,7 @@ export const TeamPresentation = () => {
             </Column>
             <Panel style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
                 <Column style={{ width: "100%" }}>
-                    <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
+                    <ProfilRow>
                         <Profil
                             image={require("../../assets/team_alex.jpg")}
                             lightMode={false}
@@ -84,12 +98,12 @@ export const TeamPresentation = () => {
                             role="Chief Operating Officer"
                             social_media={faLinkedin}
                             social_media_username="Tom Orvain" />
-                    </div>
+                    </ProfilRow>
                 </Column>
             </Panel>
             <Panel style={{ height: "min-content", width: "100%", color: "#111113" }}>
                 <Column style={{ width: "100%" }}>
-                    <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
+                    <ProfilRow>
                         <Profil
                             image={require("../../assets/team_pierre.jpg")}
                             icon="CTO"
@@ -108,12 +122,12 @@ export const TeamPresentation = () => {
                             role="Chief Creative Officer"
                             social_media={faInstagram}
                             social_media_username="@_Globule" />
-                    </div>
+                    </ProfilRow>
                 </Column>
             </Panel>
             <Panel style={{ height: "min-content", width: "100%", color: "#111113" }}>
                 <Column style={{ width: "100%" }}>
-                    <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr", justifyItems: "center"}}>
+                    <ProfilRow>
                         <Profil
                             image={require("../../assets/team_ines.jpeg")}
                             icon="Mar"
@@ -130,21 +144,22 @@ export const TeamPresentation = () => {
                             role="Communication Manager"
                             social_media={faLinkedin}
                             social_media_username="Mathieu" />
-                    </div>
+                    </ProfilRow>
                 </Column>
             </Panel>
             <Panel style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
                 <Column style={{ width: "100%" }}>
-                    <Row style={{ width: "100%", justifyContent: "space-around" }}>
+                    <ProfilRow>
                         <Profil
                             image={require("../../assets/team_romain.jpg")}
+                            icon="CTO"
                             lightMode={false}
                             name="Romain Martineau"
                             missions={["Develop"]}
                             role="Fullstack developer"
                             social_media={faLinkedin}
                             social_media_username="Pierre Siguret" />
-                    </Row>
+                    </ProfilRow>
                 </Column>
             </Panel>
         </>

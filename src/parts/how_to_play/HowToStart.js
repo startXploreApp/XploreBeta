@@ -5,6 +5,7 @@ import Column from "../../components/Column";
 import Panel from "../../components/Panel";
 import Row from "../../components/Row";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
 
 const Step = ({ text1, text2, button = false }) => {
     return (<div style={{ display: "flex", flexDirection: "row", position: "relative" }}>
@@ -27,14 +28,23 @@ const Step = ({ text1, text2, button = false }) => {
     </div>)
 }
 
+const Grandma = styled.img`
+    height: 100vh;
+    object-fit: contain;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
+    }
+`;
+
 
 
 const HowToStart = () => {
     return (
         <Panel backgroundColor={"#1F2B3A"} style={{ color: "white" }}>
-            <img
+            <Grandma
                 src={require("../../assets/pexels-anna-shvets-5257268.jpg")}
-                style={{ height: '100vh', objectFit: "contains" }} />
+                style={{  }} />
             <Column style={{ width: "100%" }}>
                 <h2 style={{ lineHeight: "42px", marginBottom: "5vh" }}>
                     Comment démarrer l’aventure ?

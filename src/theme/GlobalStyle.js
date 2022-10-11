@@ -18,6 +18,17 @@ const GlobalStyle = createGlobalStyle`
         /* Footer support */
         position: relative;
         min-height: 100%;
+        font-size: 16px;
+        @media (max-width: ${ ({theme}) => theme.screen.large}) {
+            font-size: 14px;
+        }
+        @media (max-width: ${ ({theme}) => theme.screen.medium}) {
+            font-size: 12px
+        }
+        @media (max-width: ${ ({theme}) => theme.screen.small}) {
+            font-size: 10px
+        }
+
     }
 
     body {

@@ -76,19 +76,40 @@ const questions = [
     }
 ]
 
+const QuestionCardNFT = styled(NFTImage)`
+    justify-self: center;
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
+    }
+`;
+
+const QuestionCardWrapper = styled.div`
+    display: grid;
+    width: 100%;
+    grid-template-columns: 80% 20%;
+    align-items: flex-start;
+    gap: 1.5rem;
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        grid-template-columns: 70% 30%;
+    }
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        grid-template-columns: 100%;
+    }
+`;
+
 const QuestionPlease = (props) => {
     return(
         <Panel style={{ height: "auto", backgroundColor: "#1F2B3A", alignItems: "flex-start"}}>
             <Column style={{ width: "100%" }}>
                 <h3 style={{ lineHeight: "42px", fontWeight: "700", fontFamily: "Poppins", color: "white" }}>Questions fréquentes</h3>
-                <div style={{ width: "100%", display: "grid", gridTemplateColumns: "80% 20%", alignItems: "flex-start", gap: "1.5rem" }}>
+                <QuestionCardWrapper>
                     <Column style={{ padding: "0", gap: "0.5rem", width: "100%" }}>
                         { questions.map((item, index) => (
                             <CollapsibleCard key={index} title={item.title} content={item.response} />
                         ))}
                     </Column>
-                    <NFTImage style={{ justifySelf: "center" }} src={props.image} alt="IMAGE FAQ" />
-                </div>
+                    <QuestionCardNFT src={props.image} alt="IMAGE FAQ" />
+                </QuestionCardWrapper>
             </Column>
         </Panel>
     );

@@ -7,8 +7,12 @@ const Panel = styled.div`
     overflow : hidden;
     flex-direction: row;
     align-items: center;
-    /* border: 2px dashed blue; */
     background-color : ${props => props.backgroundColor ? props.backgroundColor : "none"};
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        height: auto;
+        align-items: flex-start;
+    }
 `;
 
 export default Panel;

@@ -2,12 +2,24 @@ import { Box } from "../../components/Box"
 import Column from "../../components/Column"
 import { Text } from "../../components/Titles"
 import { GreyCardText, GreyCardWrapper } from "../../components/GreenCard"
+import styled from "styled-components"
+
+const WhyNFTGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    grid-gap: 3.5rem;
+
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        grid-template-columns: 1fr;
+    }
+`;
 
 export const WhyNFT = () => {
     return (
         <Column style={{ backgroundColor: "#FFF" }}>
             <h2>Des NFT, mais pourquoi ?</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", width: "100%", columnGap: "3.5rem" }}>
+            <WhyNFTGrid>
                 <GreyCardWrapper style={{ padding: "2rem" }}>
                     <h3>Le problème</h3>
                     <GreyCardText>
@@ -45,7 +57,7 @@ export const WhyNFT = () => {
                         par tous les joueurs.
                     </GreyCardText>
                 </GreyCardWrapper>
-            </div>
+            </WhyNFTGrid>
         </Column>
     )
 }

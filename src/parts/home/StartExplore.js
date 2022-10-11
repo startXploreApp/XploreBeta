@@ -7,6 +7,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
+import Tooltip from "../../components/Tooltip";
 
 const RedDot = styled.div`
     width: 2.2rem;
@@ -16,6 +17,20 @@ const RedDot = styled.div`
     display: inline-block;
 `;
 
+const MainColumn = styled(Column)`
+    isolation: isolate;
+    margin-top: 2rem;
+    align-content: flex-end;
+    justify-content: space-between;
+    height: 85%;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        margin-top: 0;
+        height: 50%;
+        align-content: flex-start;
+    }
+`;
+
 const StartExplore = () => {
     return (
         <Panel firstPage>
@@ -23,7 +38,7 @@ const StartExplore = () => {
                 opacity="20%"
                 image={require("../../assets/pexels-tobias-aeppli-1125272.jpg")}
                 imgStyle={{ transform: "scaleX(-1)"}}/>
-            <Column style={{ isolation: "isolate", marginTop: "2rem", alignContent: "flex-end", justifyContent: "space-between", height: "85%" }}>
+            <MainColumn>
 
                 <Column style={{padding: "0"}}>
                     <Row>
@@ -48,16 +63,18 @@ const StartExplore = () => {
                     </h2>
                     <Row style={{ gap: "1.5rem" }}>
                         <Button>
+                            <Tooltip>Coming soon !</Tooltip>
                             <h6>En savoir plus</h6>
                         </Button>
                         <Button primary>
+                            <Tooltip>Coming soon !</Tooltip>
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
                         </Button>
                     </Row>
                 </Column>
 
-            </Column>
+            </MainColumn>
         </Panel>
     );
 }

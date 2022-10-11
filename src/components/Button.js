@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Tooltip from "./Tooltip";
 
 const Button = styled.button`
     font-size: 0.75rem;
@@ -7,6 +8,7 @@ const Button = styled.button`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: "relative";
     gap: 0.5rem;
     border: ${props => props.primary ? "1px solid " + props.theme.colors.primary : props.secondary ? "1px solid #000" : props.ghost ? "1px solid #FFF" : "none"};
     border-radius: 0.5rem;
@@ -17,6 +19,10 @@ const Button = styled.button`
     &:hover {
         cursor: pointer;
         transform: scale(1.05);
+
+        ${Tooltip} {
+            visibility: visible;
+        }
     }
 `;
 

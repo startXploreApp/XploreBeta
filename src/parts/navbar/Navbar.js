@@ -16,6 +16,13 @@ const NavbarWrapper = styled.div`
     align-items: center;
     gap: 2rem;
     background-color: ${props => props.backgroundColor};
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        height: auto;
+    }
 `;
 
 const NavbarLogo = styled.img`
@@ -34,6 +41,10 @@ const NavbarCol = styled.div`
     align-items: center;
     padding: 1rem;
     gap: 1rem;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        flex-direction: row;
+    }
 `;
 
 const NavbarRow = styled.div`
@@ -57,6 +68,10 @@ export const NavbarList = styled.ul`
     display: flex;
     align-content: center;
     gap: 6rem;
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        gap: 3rem;
+    }
 `;
 
 
