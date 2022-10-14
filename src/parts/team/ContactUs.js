@@ -19,12 +19,25 @@ const TriangleWrapper = styled.div`
     margin-right: 0; 
     position: 'relative';
     z-index: -1;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
+    }
+`;
+
+const ContactUsWrapper = styled(Column)`
+    width: 50%;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        width: 100%;
+    }
+
 `;
 
 export const ContactUs = () => {
     return (
         <Panel style={{ height: "auto", width: "100%", position: "relative", alignItems: "flex-start" }}>
-            <Column style={{ width: "50%" }}>
+            <ContactUsWrapper>
                 <h2>Nous contacter</h2>
                 <Input placeholder="Nom" />
                 <Input type="email" placeholder="Mail" />
@@ -33,7 +46,7 @@ export const ContactUs = () => {
                     <h6>Envoyer</h6>
                     <FontAwesomeIcon icon={faPaperPlane} size={"xl"} />
                 </Button>
-            </Column>
+            </ContactUsWrapper>
             <TriangleWrapper>
                 <svg preserveAspectRatio="xMidYMin meet" style={{ position: 'absolute', top: 0, right: 0 }} width="100vw" height="200vh" viewBox="0 0 683 423" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M683 423V0L0 423H683Z" fill="#1F2B3A" />

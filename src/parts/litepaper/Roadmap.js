@@ -35,6 +35,10 @@ const RoadmapPath = styled.img`
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
+    }
 `;
 
 const Divider = styled.div`

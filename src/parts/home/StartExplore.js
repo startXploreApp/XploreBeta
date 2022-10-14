@@ -21,12 +21,12 @@ const MainColumn = styled(Column)`
     isolation: isolate;
     margin-top: 2rem;
     align-content: flex-end;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 85%;
 
     @media (max-width: ${({theme}) => theme.screen.medium}) {
-        margin-top: 0;
-        height: 50%;
+        margin-top: 5rem;
+        height: 100%;
         align-content: flex-start;
     }
 `;
@@ -40,7 +40,7 @@ const StartExplore = () => {
                 imgStyle={{ transform: "scaleX(-1)"}}/>
             <MainColumn>
 
-                <Column style={{padding: "0"}}>
+                {/* <Column style={{padding: "0"}}>
                     <Row>
                         <RedDot />
                         <h1 style={{ color: "white"}} >
@@ -53,7 +53,7 @@ const StartExplore = () => {
                         </h6>
                         <FontAwesomeIcon icon={faArrowRight} size={"xl"} />
                     </Button>
-                </Column>
+                </Column> */}
 
                 <Column style={{padding: "0"}}>
                     <h2 style={{ lineHeight: "42px", color: "white" }}>

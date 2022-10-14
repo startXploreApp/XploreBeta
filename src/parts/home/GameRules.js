@@ -14,6 +14,7 @@ const GridWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
+
     @media (max-width: ${({theme}) => theme.screen.medium}) {
         grid-template-columns: 1fr 1fr 1fr;
     }

@@ -30,7 +30,7 @@ const Home = () => {
     return (
         <>
             <StartExplore />
-            {/* <VideoPresentation /> */}
+            <VideoPresentation />
             <OnHover />
             <GameRules />
             <Panel style={{ height: "300px" }}>

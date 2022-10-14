@@ -8,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
         word-wrap: break-word;
     }
 
+    a {
+        text-decoration: none;
+        color: unset;
+    }
+
     html {
         ::-webkit-scrollbar {
             display: none;

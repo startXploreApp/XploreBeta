@@ -7,12 +7,19 @@ import Row from "../../components/Row";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
+const ArrowStep = styled.img`
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: none;
+    }
+`;
+
+
 const Step = ({ text1, text2, button = false }) => {
     return (<div style={{ display: "flex", flexDirection: "row", position: "relative" }}>
-        <img
+        <ArrowStep
             src={require("../../assets/arrow_1.svg").default}
             style={{ height: "18vh", paddingTop: 5, marginRight: 30 }} />
-        <div style={{ display: "flex", justifyContent: 'space-between', flexDirection: "column" }}>
+        <StepWrapper style={{ display: "flex", justifyContent: 'space-between', flexDirection: "column" }}>
             {button === "text1" ? (<Row style={{ marginTop: '-0.75rem' }}>
                 <p>{text1}</p>
                 <Button style={{ fontSize: "0.9rem" }} ghost>Découvrir comment</Button>
@@ -24,7 +31,7 @@ const Step = ({ text1, text2, button = false }) => {
                     <Button style={{ fontSize: "0.9rem" }} ghost>Découvrir comment</Button>
                 </Row>) : (<p>{text2}</p>)}
             </div>
-        </div>
+        </StepWrapper>
     </div>)
 }
 
@@ -37,6 +44,13 @@ const Grandma = styled.img`
     }
 `;
 
+const StepWrapper = styled.div`
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+`;
 
 
 const HowToStart = () => {
@@ -49,23 +63,23 @@ const HowToStart = () => {
                 <h2 style={{ lineHeight: "42px", marginBottom: "5vh" }}>
                     Comment démarrer l’aventure ?
                 </h2>
-                <div>
+                <StepWrapper>
                     <Step
                         text1="Créer un portefeuille Maiar"
                         text2="Acheter le jeton EGLD"
                         button="text1" />
-                    <img
+                    <ArrowStep
                         src={require("../../assets/arrow_2.svg").default}
                         style={{ height: "17vh", marginLeft: "50%", marginTop: "-3%", marginBottom: "-5%" }} />
                     <Step
                         text1="Se connecter à l’application avec son portefeuille"
                         text2="Échanger des jetons EGLD contre un ticket"
                         button="text2" />
-                    <img
+                    <ArrowStep
                         src={require("../../assets/arrow_3.svg").default}
                         style={{ height: "13vh", marginLeft: "55%", marginTop: "3%", marginBottom: "-5%" }} />
                     <p style={{ marginLeft: "5rem" }}>Partir en quête du monde !</p>
-                </div>
+                </StepWrapper>
                 <div style={{ alignSelf: "end" }}>
                     <p>Vous avez déjà un portefeuille Maiar ?</p>
                     <Button primary>

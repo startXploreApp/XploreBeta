@@ -63,7 +63,9 @@ const Profil = ({ image = require("../../assets/pexels-anna-shvets-5257268.jpg")
                         )
                     }
                 </div>
-                <IconTitle icon={social_media} text={social_media_username} />
+                <a href={social_media_url} target="_blank" rel="noopener noreferrer">
+                    <IconTitle icon={social_media} text={social_media_username} />
+                </a>
             </Column>
         </div>
     )
@@ -87,7 +89,8 @@ export const TeamPresentation = () => {
                             missions={["Project lead", "Project owner"]}
                             role="Chief Executive Officer"
                             social_media={faLinkedin}
-                            social_media_username="Alexandre Siguret"/>
+                            social_media_username="Alexandre Siguret"
+                            social_media_url="https://www.linkedin.com/in/alexandre-siguret-74b09211a/" />
                         <Profil
                             image={require("../../assets/team_tom.jpg")}
                             lightMode={false}
@@ -97,7 +100,8 @@ export const TeamPresentation = () => {
                             missions={["Product designer", "UI/UX designer"]}
                             role="Chief Operating Officer"
                             social_media={faLinkedin}
-                            social_media_username="Tom Orvain" />
+                            social_media_username="Tom Orvain"
+                            social_media_url="https://www.linkedin.com/in/tom-orvain-176437172/" />
                     </ProfilRow>
                 </Column>
             </Panel>
@@ -112,7 +116,8 @@ export const TeamPresentation = () => {
                             missions={["Technical lead", "Develop"]}
                             role="Chief Technical Officer"
                             social_media={faLinkedin}
-                            social_media_username="Pierre LE DEZ"/>
+                            social_media_username="Pierre LE DEZ"
+                            social_media_url="https://www.linkedin.com/in/pierre-le-dez-111721158/" />
                         <Profil
                             image={require("../../assets/team_lise.jpg")}
                             coFounders
@@ -121,7 +126,8 @@ export const TeamPresentation = () => {
                             missions={["3D artist", "2D/3D tatoo artist"]}
                             role="Chief Creative Officer"
                             social_media={faInstagram}
-                            social_media_username="@_Globule" />
+                            social_media_username="@_Globule"
+                            social_media_url="https://www.instagram.com/_globule/" />
                     </ProfilRow>
                 </Column>
             </Panel>
@@ -135,15 +141,17 @@ export const TeamPresentation = () => {
                             missions={["Marketing"]}
                             role="Marketing Manager"
                             social_media={faLinkedin}
-                            social_media_username="Ines Zaïdi" />
+                            social_media_username="Ines Zaïdi"
+                            social_media_url="https://www.linkedin.com/in/in%C3%A8s-za%C3%AFdi-8a5169185/" />
                         <Profil
                             image={require("../../assets/team_math.jpg")}
                             icon="Com"
-                            name="Mathieu"
+                            name="Mathieu Brousset"
                             missions={["Communication", "Social media"]}
                             role="Communication Manager"
                             social_media={faLinkedin}
-                            social_media_username="Mathieu" />
+                            social_media_username="Mathieu Brousset"
+                            social_media_url="https://www.linkedin.com/in/mathieu-brousset/" />
                     </ProfilRow>
                 </Column>
             </Panel>
@@ -158,7 +166,8 @@ export const TeamPresentation = () => {
                             missions={["Develop"]}
                             role="Fullstack developer"
                             social_media={faLinkedin}
-                            social_media_username="Pierre Siguret" />
+                            social_media_username="Romain Martineau"
+                            social_media_url="https://www.linkedin.com/in/romain-martineau-352740a8/" />
                     </ProfilRow>
                 </Column>
             </Panel>
