@@ -1,7 +1,6 @@
 import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import styled from "styled-components";
-import Row from "../../components/Row";
 
 const VideoPlayer = styled.iframe`
     width: 50%;
@@ -21,6 +20,19 @@ const VideoPlayer = styled.iframe`
     }
 `;
 
+const MapWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        grid-template-columns: 1fr;
+    }
+`;
+
 const VideoPresentation = () => {
     return (
         <Panel style={{ height: "75vh", backgroundColor: "#E5E5E5" }}>
@@ -35,25 +47,20 @@ const VideoPresentation = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </VideoPlayer> */}
-                <Row>
-                    <img style={{ width: "55%", padding: "2rem", objectFit: "contain" }} src={require("../../assets/voyages_xplore.png")} alt="voyages" />
-                    <Column style={{ width: "60%" }}>
+                <MapWrapper>
+                    <img style={{ width: "100%", padding: "2rem", objectFit: "contain" }} src={require("../../assets/voyages_xplore.png")} alt="voyages" />
+                    <Column style={{ width: "100%" }}>
                         <h2>Une équipe de voyageurs</h2>
                         <p>
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            lorem ipsum lorem ipsum
+                            En Inde, au Pakistan, en Floride et au Québec, du soleil levant Japonais au soleil couchant Californien, 
+                            chaque point de cette carte représente un voyage fait par l'un des membres de l'équipe X'Plore.
+                            <br />
+                            <br />
+                            Seul ou entre amis, devenez des X'Plorer en participant à la plus grande chasse au trésor du monde et,
+                            à votre tour, ajoutez un point sur la carte !
                         </p>
                     </Column>
-                </Row>
+                </MapWrapper>
             </Column>
         </Panel>
     );
