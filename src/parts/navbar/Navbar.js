@@ -88,19 +88,19 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         switch (currentPage) {
             case "/":
                 setLightMode(false);
-                setNavbarLogo(require("../../assets/logo_white.svg").default);
+                setNavbarLogo(require("../../assets/white.png"));
                 break;
             case "/how-to-play":
                 setLightMode(false);
-                setNavbarLogo(require("../../assets/logo_white.svg").default);
+                setNavbarLogo(require("../../assets/white.png"));
                 break;
             case "/litepaper":
                 setLightMode(true);
-                setNavbarLogo(require("../../assets/logo_black.svg").default);
+                setNavbarLogo(require("../../assets/colored.png"));
                 break;
             case "/team":
                 setLightMode(true);
-                setNavbarLogo(require("../../assets/logo_black.svg").default);
+                setNavbarLogo(require("../../assets/colored.png"));
                 break;
             default:
                 setLightMode(true);
@@ -139,24 +139,32 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
             <NavbarCol>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faDiscord}
-                        style={{ fontSize: "28px" }} />
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faTwitter}
-                        style={{ fontSize: "28px" }} />
+                    <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faDiscord}
+                            style={{ fontSize: "28px" }} />
+                    </a>
+                    <a href={"https://twitter.com/app_xplore"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faTwitter}
+                            style={{ fontSize: "28px" }} />
+                    </a>
                 </NavbarRow>
                 <NavbarRow style={{ gap: "1rem" }}>
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faInstagram}
-                        style={{ fontSize: "28px" }} />
-                    <Icon
-                        lightMode={lightMode}
-                        icon={faTelegram}
-                        style={{ fontSize: "28px" }} />
+                    <a href={"https://www.instagram.com/xplore.app.project/"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faInstagram}
+                            style={{ fontSize: "28px" }} />
+                    </a>
+                    <a href={"https://t.me/XploreApp"} target="_blank" rel="noreferrer">
+                        <Icon
+                            lightMode={lightMode}
+                            icon={faTelegram}
+                            style={{ fontSize: "28px" }} />
+                    </a>
                 </NavbarRow>
             </NavbarCol>
 

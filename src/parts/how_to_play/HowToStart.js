@@ -6,9 +6,10 @@ import Panel from "../../components/Panel";
 import Row from "../../components/Row";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 const ArrowStep = styled.img`
-    @media (max-width: ${({theme}) => theme.screen.medium}) {
+    @media (max-width: ${({theme}) => theme.screen.large}) {
         display: none;
     }
 `;
@@ -39,13 +40,13 @@ const Grandma = styled.img`
     height: 100vh;
     object-fit: contain;
 
-    @media (max-width: ${({theme}) => theme.screen.medium}) {
+    @media (max-width: ${({theme}) => theme.screen.large}) {
         display: none;
     }
 `;
 
 const StepWrapper = styled.div`
-    @media (max-width: ${({theme}) => theme.screen.medium}) {
+    @media (max-width: ${({theme}) => theme.screen.large}) {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -54,6 +55,9 @@ const StepWrapper = styled.div`
 
 
 const HowToStart = () => {
+
+    const { height, width } = useWindowDimensions();
+
     return (
         <Panel backgroundColor={"#1F2B3A"} style={{ color: "white" }}>
             <Grandma
@@ -63,23 +67,35 @@ const HowToStart = () => {
                 <h2 style={{ lineHeight: "42px", marginBottom: "5vh" }}>
                     Comment démarrer l’aventure ?
                 </h2>
-                <StepWrapper>
-                    <Step
-                        text1="Créer un portefeuille Maiar"
-                        text2="Acheter le jeton EGLD"
-                        button="text1" />
-                    <ArrowStep
-                        src={require("../../assets/arrow_2.svg").default}
-                        style={{ height: "17vh", marginLeft: "50%", marginTop: "-3%", marginBottom: "-5%" }} />
-                    <Step
-                        text1="Se connecter à l’application avec son portefeuille"
-                        text2="Échanger des jetons EGLD contre un ticket"
-                        button="text2" />
-                    <ArrowStep
-                        src={require("../../assets/arrow_3.svg").default}
-                        style={{ height: "13vh", marginLeft: "55%", marginTop: "3%", marginBottom: "-5%" }} />
-                    <p style={{ marginLeft: "5rem" }}>Partir en quête du monde !</p>
-                </StepWrapper>
+                { width >= 768 ? 
+                    <StepWrapper>
+                        <Step
+                            text1="Créer un portefeuille Maiar"
+                            text2="Acheter le jeton EGLD"
+                            button="text1" />
+                        <ArrowStep
+                            src={require("../../assets/arrow_2.svg").default}
+                            style={{ height: "17vh", marginLeft: "50%", marginTop: "-3%", marginBottom: "-5%" }} />
+                        <Step
+                            text1="Se connecter à l’application avec son portefeuille"
+                            text2="Échanger des jetons EGLD contre un ticket"
+                            button="text2" />
+                        <ArrowStep
+                            src={require("../../assets/arrow_3.svg").default}
+                            style={{ height: "13vh", marginLeft: "55%", marginTop: "3%", marginBottom: "-5%" }} />
+                        <p style={{ marginLeft: "5rem" }}>Partir en quête du monde !</p>
+                    </StepWrapper> : 
+                    <Column>
+                        <Step
+                            text1="Créer un portefeuille Maiar"
+                            text2="Acheter le jeton EGLD"
+                            button="text1" />
+                        <Step
+                            text1="Se connecter à l’application avec son portefeuille"
+                            text2="Échanger des jetons EGLD contre un ticket"
+                            button="text2" />
+                    </Column>
+                }
                 <div style={{ alignSelf: "end" }}>
                     <p>Vous avez déjà un portefeuille Maiar ?</p>
                     <Button primary>

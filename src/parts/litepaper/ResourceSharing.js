@@ -5,6 +5,7 @@ import Row from "../../components/Row";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../../components/Button";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 const SharingCard = styled(Column)`
     justify-content: space-between;
@@ -25,6 +26,10 @@ const SharingsDetails = styled.div`
 
 const SharingCardTitle = styled.h5`
     text-align: center;
+
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        font-size: 0.85rem;
+    }
 `;
 
 const sharings = [
@@ -87,42 +92,107 @@ const sharings = [
 ]
 
 const ResourceSharing = () => {
+
+    const { height, width } = useWindowDimensions();
+
     return (
         <Panel style={{ height: "auto" }} backgroundColor="#F8F9FA">
             <Column style={{width: "100%"}}>
                 <h3>Répartition des ressources</h3>
                 <Column style={{ width: "100%", gap: "0", padding: "0"}}>
-                    <SharingsDetails>
-                        { sharings.map(element => (
-                            <SharingCard
-                                    isProject={element.isProject}
-                                    backgroundColor={element.backgroundColor}
-                                    borderLeft={element.borderLeft}
-                                    borderRight={element.borderRight}>
-                                <SharingCardTitle>
-                                    {element["title"].length === 1 ?
-                                        element["title"] :
-                                        element["title"].map(title_elt => (
-                                            [title_elt, <br/>]
-                                        ))
-                                    }
-                                </SharingCardTitle>
-                                <h2>
-                                    {element.subtitle}
-                                </h2>
-                            </SharingCard>
-                        ))}
-                    </SharingsDetails>
-                    <div style={{ color: "white", backgroundColor: "#1F2B3A", width: "100%", display: "grid", gridTemplateColumns: "49% 51%" }}>
-                        <Row style={{ borderRight: "2px solid #000", justifyContent: "center"}}>
-                            <h5>Redistribution</h5>
-                            <h2>49%</h2>
-                        </Row>
-                        <Row style={{ borderLeft: "2px solid #000", justifyContent: "center"}}>
-                            <h5>Projet</h5>
-                            <h2>51%</h2>
-                        </Row>
-                    </div>
+                    { width >= 1100 ?
+                        <>
+                            <SharingsDetails>
+                                { sharings.map(element => (
+                                    <SharingCard
+                                            isProject={element.isProject}
+                                            backgroundColor={element.backgroundColor}
+                                            borderLeft={element.borderLeft}
+                                            borderRight={element.borderRight}>
+                                        <SharingCardTitle>
+                                            {element["title"].length === 1 ?
+                                                element["title"] :
+                                                element["title"].map(title_elt => (
+                                                    [title_elt, <br/>]
+                                                ))
+                                            }
+                                        </SharingCardTitle>
+                                        <h2>
+                                            {element.subtitle}
+                                        </h2>
+                                    </SharingCard>
+                                ))}
+                            </SharingsDetails>
+                            <div style={{ color: "white", backgroundColor: "#1F2B3A", width: "100%", display: "grid", gridTemplateColumns: "49% 51%" }}>
+                                <Row style={{ borderRight: "2px solid #000", justifyContent: "center"}}>
+                                    <h5>Redistribution</h5>
+                                    <h2>49%</h2>
+                                </Row>
+                                <Row style={{ borderLeft: "2px solid #000", justifyContent: "center"}}>
+                                    <h5>Projet</h5>
+                                    <h2>51%</h2>
+                                </Row>
+                            </div>
+                        </> :
+                        <Column style={{ width: "100%", padding: "0" }}>
+                            <div style={{ width: "100%", display: "flex", flexDirection: "column"}}>
+                                <div style={{ display: "grid", width: "100%", gridTemplateColumns: "repeat(4, 25%)"}}>
+                                    { Array.from([0, 1, 2, 3]).map(index => (
+                                        <SharingCard
+                                            isProject={sharings[index].isProject}
+                                            backgroundColor={sharings[index].backgroundColor}
+                                            borderLeft={sharings[index].borderLeft}>
+                                        <SharingCardTitle>
+                                            {sharings[index]["title"].length === 1 ?
+                                                sharings[index]["title"] :
+                                                sharings[index]["title"].map(title_elt => (
+                                                    [title_elt, <br/>]
+                                                ))
+                                            }
+                                        </SharingCardTitle>
+                                        <h2>
+                                            {sharings[index].subtitle}
+                                        </h2>
+                                    </SharingCard>
+                                    ))}
+                                </div>
+                                <div style={{ color: "white", backgroundColor: "#1F2B3A", width: "100%" }}>
+                                    <Row style={{ width: "100%", borderRight: "2px solid #000", justifyContent: "center"}}>
+                                        <h5>Redistribution</h5>
+                                        <h2>49%</h2>
+                                    </Row>
+                                </div>
+                            </div>
+
+                            <div style={{ width: "100%", display: "flex", flexDirection: "column"}}>
+                                <div style={{ display: "grid", width: "100%", gridTemplateColumns: "1fr 1fr 1fr"}}>
+                                    { Array.from([4, 5, 6]).map(index => (
+                                        <SharingCard
+                                            isProject={sharings[index].isProject}
+                                            backgroundColor={sharings[index].backgroundColor}>
+                                        <SharingCardTitle>
+                                            {sharings[index]["title"].length === 1 ?
+                                                sharings[index]["title"] :
+                                                sharings[index]["title"].map(title_elt => (
+                                                    [title_elt, <br/>]
+                                                ))
+                                            }
+                                        </SharingCardTitle>
+                                        <h2>
+                                            {sharings[index].subtitle}
+                                        </h2>
+                                    </SharingCard>
+                                    ))}
+                                </div>
+                                <div style={{ color: "white", backgroundColor: "#1F2B3A", width: "100%" }}>
+                                    <Row style={{ borderLeft: "2px solid #000", justifyContent: "center"}}>
+                                        <h5>Projet</h5>
+                                        <h2>51%</h2>
+                                    </Row>
+                                </div>
+                            </div>
+                        </Column >
+                    }
                 </Column>
                 <Row style={{ width: "100%", justifyContent: "flex-end" }}>
                     <Button primary>

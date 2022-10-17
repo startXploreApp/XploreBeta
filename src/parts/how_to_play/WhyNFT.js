@@ -10,7 +10,7 @@ const WhyNFTGrid = styled.div`
     width: 100%;
     grid-gap: 3.5rem;
 
-    @media (max-width: ${({theme}) => theme.screen.small}) {
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
         grid-template-columns: 1fr;
     }
 `;

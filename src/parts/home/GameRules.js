@@ -7,6 +7,7 @@ import { faArrowRight, faBuilding, faTicketSimple, faClock, faQrcode, faTrophy, 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from "../../components/Tooltip";
 import GreenCardWrapper, { GreyCardWrapper, GreyCardText} from "../../components/GreenCard";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 
 const GridWrapper = styled.div`
@@ -15,8 +16,12 @@ const GridWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
 
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        grid-template-columns: 1fr;
+    }
+
     @media (max-width: ${({theme}) => theme.screen.medium}) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     @media (max-width: ${({theme}) => theme.screen.small}) {
         grid-template-columns: 1fr;
@@ -26,51 +31,141 @@ const GridWrapper = styled.div`
 
 
 const GameRules = () => {
+
+    const {height, width} = useWindowDimensions();
+
     return (
         <Panel style={{ alignItems: "flex-start", height: "auto", backgroundColor: "#F8F9FA"}}>
             <Column style={{ width: "100%", gap: "24px" }}>
                 <h3>Règles du jeu</h3>
                 <Column style={{ width: "100%", padding: "0" }}>
                     <GridWrapper>
-                        <Column style={{ width: "100%", height: "auto", justifyContent: "center", gap: "3rem" }}>
-                            <GreenCardWrapper style={{ position: "relative", left: "10%", top: "-7%" }}>
-                                <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                    <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faBuilding} />
-                                    <h3>Selectionne ta ville d'aventure</h3>
-                                </div>
-                                <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                        <Column style={{ padding: "0", marginTop: "-10rem", width: "100%", height: "auto", justifyContent: "center", gap: "3rem" }}>
+                            {width >= 1280 ?
+                                <>
+                                    <GreenCardWrapper style={{ position: "relative" }}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faBuilding} />
+                                            <h3>Selectionne ta ville d'aventure</h3>
+                                        </div>
+                                        <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem", transform: "rotate(-64deg)" }} icon={faTicketSimple} />
+                                                <h3>Achète ton ticket</h3>
+                                            </div>
+                                        </GreenCardWrapper>
+                                    </GreenCardWrapper>
+                                    <GreenCardWrapper style={{ position: "relative" }}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faClock} />
+                                            <h3>Attends le top<br/> départ pour <br/>débuter la chasse</h3>
+                                        </div>
+                                        <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faQrcode} />
+                                                <h3>Résous jusqu'à 20 énigmes</h3>
+                                            </div>
+                                        </GreenCardWrapper>
+                                    </GreenCardWrapper>
+                                    <GreenCardWrapper style={{ position: "relative" }}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faTrophy} />
+                                            <h3>Gagne des récompenses</h3>
+                                        </div>
+                                        <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faStar} />
+                                                <h3>Deviens le grand vainqueur de l'édition</h3>
+                                            </div>
+                                        </GreenCardWrapper>
+                                    </GreenCardWrapper>
+                                </> :
+                                width >= 576 ?
+                                <>
+                                <Row style={{ justifySelf: "center", alignSelf: "center" }}>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faBuilding} />
+                                            <h3>Selectionne ta ville d'aventure</h3>
+                                        </div>
+                                    </GreenCardWrapper>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem", transform: "rotate(-64deg)" }} icon={faTicketSimple} />
+                                                <h3>Achète ton ticket</h3>
+                                            </div>
+                                    </GreenCardWrapper>
+                                </Row>
+                                <Row style={{ justifySelf: "center", alignSelf: "center" }}>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faClock} />
+                                            <h3>Attends le top<br/> départ pour <br/>débuter la chasse</h3>
+                                        </div>
+                                    </GreenCardWrapper>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faQrcode} />
+                                                <h3>Résous jusqu'à 20 énigmes</h3>
+                                            </div>
+                                    </GreenCardWrapper>
+                                </Row>
+                                <Row style={{ justifySelf: "center", alignSelf: "center" }}>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faTrophy} />
+                                            <h3>Gagne des récompenses</h3>
+                                        </div>
+                                    </GreenCardWrapper>
+                                    <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                            <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                                <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faStar} />
+                                                <h3>Deviens le grand vainqueur de l'édition</h3>
+                                            </div>
+                                    </GreenCardWrapper>
+                                </Row>
+                            </> : 
+                            <>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
                                     <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem", transform: "rotate(-64deg)" }} icon={faTicketSimple} />
-                                        <h3>Achète ton ticket</h3>
+                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faBuilding} />
+                                        <h3>Selectionne ta ville d'aventure</h3>
                                     </div>
                                 </GreenCardWrapper>
-                            </GreenCardWrapper>
-                            <GreenCardWrapper style={{ position: "relative", left: "10%", top: "-7%" }}>
-                                <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                    <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faClock} />
-                                    <h3>Attends le top<br/> départ pour <br/>débuter la chasse</h3>
-                                </div>
-                                <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem", transform: "rotate(-64deg)" }} icon={faTicketSimple} />
+                                            <h3>Achète ton ticket</h3>
+                                        </div>
+                                </GreenCardWrapper>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
                                     <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faQrcode} />
-                                        <h3>Résous jusqu'à 20 énigmes</h3>
+                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faClock} />
+                                        <h3>Attends le top<br/> départ pour <br/>débuter la chasse</h3>
                                     </div>
                                 </GreenCardWrapper>
-                            </GreenCardWrapper>
-                            <GreenCardWrapper style={{ position: "relative", left: "10%", top: "-7%" }}>
-                                <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                    <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faTrophy} />
-                                    <h3>Gagne des récompenses</h3>
-                                </div>
-                                <GreenCardWrapper style={{ position: "absolute", bottom: "-70%", right: "-85%", zIndex: "2"}}>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faQrcode} />
+                                            <h3>Résous jusqu'à 20 énigmes</h3>
+                                        </div>
+                                </GreenCardWrapper>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
                                     <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faStar} />
-                                        <h3>Deviens le grand vainqueur de l'édition</h3>
+                                        <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faTrophy} />
+                                        <h3>Gagne des récompenses</h3>
                                     </div>
                                 </GreenCardWrapper>
-                            </GreenCardWrapper>
+                                <GreenCardWrapper style={{ justifySelf: "center", alignSelf: "center"}}>
+                                        <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                            <FontAwesomeIcon style={{ fontSize: "4rem", marginRight: "0.75rem" }} icon={faStar} />
+                                            <h3>Deviens le grand vainqueur de l'édition</h3>
+                                        </div>
+                                </GreenCardWrapper>
+                            </>
+                            }
                         </Column>
-                        <Column style={{ height: "auto" }}>
+                        <Column style={{ padding: "0", height: "auto" }}>
                             <GreyCardWrapper>
                                 <h3>Règles du jeu</h3>
                                 <GreyCardText>

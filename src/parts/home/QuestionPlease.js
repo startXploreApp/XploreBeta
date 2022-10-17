@@ -108,7 +108,7 @@ const QuestionPlease = (props) => {
                             <CollapsibleCard key={index} title={item.title} content={item.response} />
                         ))}
                     </Column>
-                    <QuestionCardNFT src={props.image} alt="IMAGE FAQ" />
+                    {/* <QuestionCardNFT src={props.image} alt="IMAGE FAQ" /> */}
                 </QuestionCardWrapper>
             </Column>
         </Panel>
