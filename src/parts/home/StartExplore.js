@@ -63,11 +63,9 @@ const StartExplore = () => {
                     </h2>
                     <Row style={{ gap: "1.5rem" }}>
                         <Button>
-                            <Tooltip>Coming soon !</Tooltip>
                             <h6>En savoir plus</h6>
                         </Button>
                         <Button primary>
-                            <Tooltip>Coming soon !</Tooltip>
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
                         </Button>
