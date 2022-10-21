@@ -61,7 +61,7 @@ const HowToStart = () => {
     return (
         <Panel backgroundColor={"#1F2B3A"} style={{ color: "white" }}>
             <Grandma
-                src={require("../../assets/pexels-anna-shvets-5257268.jpg")}
+                src={require("../../assets/grandma.jpg")}
                 style={{  }} />
             <Column style={{ width: "100%" }}>
                 <h2 style={{ lineHeight: "42px", marginBottom: "5vh" }}>

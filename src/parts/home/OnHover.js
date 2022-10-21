@@ -13,7 +13,7 @@ const OnHover = () => {
                     <ExpandColumn style={{ position: "relative" }}>
                         <div className="imgWrapper" style={{ position: "absolute", width: "100%", height: "100vh", backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))" }} >
                             <img
-                                src={ require("../../assets/pexels-pierre-blaché-2901209.jpg") } 
+                                src={ require("../../assets/on_hover_1.jpg") } 
                                 style={{ zIndex: "-1", position: "absolute", width: "100%", height: "100vh", top: "0", left: "0", objectFit: "cover" }} />
                         </div>
 
@@ -31,7 +31,7 @@ const OnHover = () => {
                     <ExpandColumn style={{ position: "relative" }}>
                         <div className="imgWrapper" style={{ position: "absolute", width: "100%", height: "100vh", backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))" }} >
                             <img
-                                src={ require("../../assets/pexels-creative-vix-9746.jpg") }
+                                src={ require("../../assets/on_hover_2.jpg") }
                                 style={{ zIndex: "-1", position: "absolute", width: "100%", height: "100vh", top: "0", left: "0", objectFit: "cover" }} />
                         </div>
 
@@ -49,7 +49,7 @@ const OnHover = () => {
                     <ExpandColumn style={{ position: "relative" }}>
                         <div className="imgWrapper" style={{ position: "absolute", width: "100%", height: "100vh", backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))" }} >
                             <img
-                                src={ require("../../assets/pexels-rodnae-productions-7551758.jpg") } 
+                                src={ require("../../assets/on_hover_3.jpg") } 
                                 style={{ zIndex: "-1", position: "absolute", width: "100%", height: "100vh", top: "0", left: "0", objectFit: "cover" }} />
                         </div>
 

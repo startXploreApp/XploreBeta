@@ -32,7 +32,7 @@ const ProfilRow = styled.div`
     }
 `;
 
-const Profil = ({ image = require("../../assets/pexels-anna-shvets-5257268.jpg"), missions, coFounders=false, name, role, social_media, social_media_username, social_media_url, lightMode = true, icon }) => {
+const Profil = ({ image = require("../../assets/grandma.jpg"), missions, coFounders=false, name, role, social_media, social_media_username, social_media_url, lightMode = true, icon }) => {
     return (
         <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexDirection: "row", width: "31.5rem", maxWidth: "31.5rem", gap: "0.5rem"}}>
             <img style={{ width: "12.5rem", height: "12.5rem", objectFit: "cover", borderRadius: "100%" }} src={image} alt="profil" />

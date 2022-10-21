@@ -32,7 +32,7 @@ const Team = () => {
                 <Column style={{ padding: "0", width: "100%", }}>
                     <img
                         style={{ objectPosition: "center 70%", width: "100%", height: "300px", objectFit: "cover" }}
-                        src={require("../../assets/pexels-oziel-gómez-860562.jpg")}
+                        src={require("../../assets/gars_sac.jpg")}
                         alt="4" />
                 </Column>
             </Panel>
