@@ -4,10 +4,12 @@ import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import Row from "../../components/Row";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
 import Tooltip from "../../components/Tooltip";
+import WHITEPAPER from "../../media/whitepaper.pdf";
 
 const RedDot = styled.div`
     width: 2.2rem;
@@ -55,20 +57,31 @@ const StartExplore = () => {
                     </Button>
                 </Column> */}
 
-                <Column style={{padding: "0"}}>
+                <Column style={{padding: "0 1.5rem"}}>
                     <h2 style={{ lineHeight: "42px", color: "white" }}>
                         Bienvenue dans le premier jeu décentralisé <br />
                         qui vous récompense pour 
-                        <span style={{ fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span>
+                        <span style={{ marginLeft: "0.5rem", fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span>
                     </h2>
                     <Row style={{ gap: "1.5rem" }}>
-                        <Button>
+                        <Button onClick={() => {
+                            const element = document.getElementById("game-rules");
+                            const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                            const y = element.getBoundingClientRect().top + window.pageYOffset - 10*rem;
+                            window.scrollTo({ "top": y, "behavior": "smooth" })
+                        }}>
                             <h6>En savoir plus</h6>
                         </Button>
-                        <Button primary>
+                        {/* <Button primary>
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                        </Button>
+                        </Button> */}
+                        <a href={WHITEPAPER} target="_blank" rel="noreferrer">
+                            <Button primary>
+                                <h6>Whitepaper</h6>
+                                    <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                            </Button>
+                        </a>
                     </Row>
                 </Column>
 

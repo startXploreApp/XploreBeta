@@ -9,6 +9,9 @@ import QuestionPlease from "./QuestionPlease";
 import Partners from "./Partners";
 import NewsLetter from "../newsletter/Newsletter";
 import Footer from "../footer/Footer";
+import ParallaxImage from "../../components/ParallaxImage";
+
+const gars_sac = require("../../assets/gars_sac.jpg");
 
 const images = [
     require("../../assets/rocket_raccoon_0.jpg"),
@@ -26,21 +29,14 @@ const partners = [
     require("../../assets/elrond_logo.png")
 ]
 
-const Home = () => {
+const Home = ({ setCurrentPage }) => {
     return (
         <>
             <StartExplore />
             <VideoPresentation />
             <OnHover />
-            <GameRules />
-            <Panel style={{ height: "300px" }}>
-                <Column style={{ padding: "0", width: "100%", height: "300px" }}>
-                    <img 
-                        style={{ objectPosition: "center 70%", width: "100%", height: "300px", objectFit: "cover" }}
-                        src={ require("../../assets/gars_sac.jpg") }
-                        alt="4" />
-                </Column>
-            </Panel>
+            <GameRules setCurrentPage={setCurrentPage} />
+            <ParallaxImage />
             {/* <NFTCarousel images={images} /> */}
             <QuestionPlease image={require("../../assets/rocket_raccoon_0.jpg")}/>
             {/* <Partners partners={partners} /> */}

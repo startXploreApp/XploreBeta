@@ -53,7 +53,7 @@ const tutorial_maiar = [
 
 export const TutoMaiar = () => {
     return (
-        <Panel backgroundColor="#1F2B3A" style={{ height: "auto"}}>
+        <Panel id="tutorial-maiar" backgroundColor="#1F2B3A" style={{ height: "auto"}}>
             <Column style={{ width: "100%", color: "#D0D0D0", height: "100%"}}>
                 <h2 >Tutoriel Maiar</h2>
                 <ScrollableRow>

@@ -14,6 +14,15 @@ const CollapsibleCardWrapper = styled.div`
     align-content: center;
     flex-direction: column;
     transition: height 1s ease-in;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const CollapsibleCardHeader = styled.div`
@@ -56,12 +65,12 @@ const CollapsibleCard = (props) => {
     }
 
     return(
-        <CollapsibleCardWrapper>
+        <CollapsibleCardWrapper onClick={handleClick}>
             <CollapsibleCardHeader>
                 <h6>{props.title}</h6>
-                <ArrowDown collapse={isCollapsed} onClick={handleClick}/>
+                <ArrowDown collapse={isCollapsed}/>
             </CollapsibleCardHeader>
-            <CollapsibleSection style={{ display: `${isCollapsed ? "none" : "block"}` }} collapse={isCollapsed}>
+            <CollapsibleSection style={{ width: "100%", display: `${isCollapsed ? "none" : "block"}` }} collapse={isCollapsed}>
                 <p>{props.content}</p>
             </CollapsibleSection>
         </CollapsibleCardWrapper>

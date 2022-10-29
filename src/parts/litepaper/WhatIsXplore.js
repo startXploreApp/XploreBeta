@@ -51,13 +51,18 @@ const WhatIsXplore = () => {
                             Une équipe de passionés <br/>                            
                         </h5>
                         <Row style={{ gap: "1.5rem" }}>
-                            <Button>
+                            <Button onClick={() => {
+                                const element = document.getElementById("our-origin");
+                                const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                                const y = element.getBoundingClientRect().top + window.pageYOffset - 9*rem;
+                                window.scrollTo({ "top": y, "behavior": "smooth" })
+                            }}>
                                 <h6>En savoir plus</h6>
                             </Button>
-                            <Button primary>
+                            {/* <Button primary>
                                 <h6>Partir à l'aventure</h6>
                                 <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                            </Button>
+                            </Button> */}
                         </Row>
                     </Column>
                 </Column>

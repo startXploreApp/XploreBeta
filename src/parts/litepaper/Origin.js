@@ -2,6 +2,9 @@ import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import Button from "../../components/Button";
 import styled from "styled-components";
+import WHITEPAPER from "../../media/whitepaper.pdf";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const OriginWrapper = styled.div`
     display: grid;
@@ -18,7 +21,7 @@ const OriginWrapper = styled.div`
 
 const Origin = () => {
     return (
-        <Panel style={{height: "auto"}} backgroundColor="#F8F9FA">
+        <Panel id="our-origin" style={{height: "auto"}} backgroundColor="#F8F9FA">
             <OriginWrapper>
                 <Column style={{ justifyContent: "center"}}>
                     <h3 style={{ fontSize: "1.75rem" }}>
@@ -40,9 +43,15 @@ const Origin = () => {
                             Les rencontres, la découverte et l'imprévisible sont des choses que nous estimons importantes. Il nous semble essentiel
                         </p>
                     </Column>
-                    <Button primary>
+                    <a href={WHITEPAPER} target="_blank" rel="noreferrer">
+                        <Button primary>
+                            <h6>Whitepaper</h6>
+                                <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                        </Button>
+                    </a>
+                    {/* <Button primary>
                         <h6 style={{ fontWeight: "500"}}>Litepaper</h6>
-                    </Button>
+                    </Button> */}
                 </Column>
                 <img src={require("../../assets/pexels-pixabay-161853.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover"}} alt="origin" />
             </OriginWrapper>

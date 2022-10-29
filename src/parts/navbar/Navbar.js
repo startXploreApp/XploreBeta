@@ -7,21 +7,34 @@ import { useEffect, useState } from "react";
 import { Icon } from "../../components/Icon";
 
 const NavbarWrapper = styled.div`
+    position: sticky;
+    top: 0;
     padding: 2.5rem 3.5rem;
     width: 100%;
-    height: 10rem;
+    height: ${props => props.scroll ? "6rem": "10rem"};
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2rem;
+    z-index:10;
+    gap: 15rem;
     background-color: ${props => props.backgroundColor};
+    transition: all 0.2s ease-out;
+
+    @media (max-width: ${({theme}) => theme.screen.large}) {
+        gap: 10rem;
+    }
 
     @media (max-width: ${({theme}) => theme.screen.medium}) {
         padding: 1rem;
         flex-direction: column;
         gap: 1rem;
         height: auto;
+        transition: all 0.2s ease-in;
+
+        img {
+            display: ${props => props.scroll ? "none" : "visible"};
+        }
     }
 `;
 
@@ -80,9 +93,30 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
     const navigate = useNavigate();
 
+    const [scrolling, setScrolling] = useState(false);
+
     const [lightMode, setLightMode] = useState(true)
 
     const [navbarLogo, setNavbarLogo] = useState(null);
+
+    const changeNavbarColor = () => {
+        console.log(currentPage);
+        if (currentPage !== "/litepaper" && currentPage !== "/team") {
+            if (window.scrollY > 100) {
+                setLightMode(true);
+                setScrolling(true);
+                setNavbarLogo(require("../../assets/colored.png"));
+            }
+            else {
+                setLightMode(false);
+                setScrolling(false);
+                setNavbarLogo(require("../../assets/white.png"));
+            }
+        } else {
+            setLightMode(true);
+            setNavbarLogo(require("../../assets/colored.png"));
+        }
+    }
 
     useEffect(() => {
         switch (currentPage) {
@@ -116,8 +150,10 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         ["/team", "L'équipe"]
     ]
 
+    window.addEventListener('scroll', changeNavbarColor);
+
     return (
-        <NavbarWrapper backgroundColor={lightMode ? "#fff" : "none"}>
+        <NavbarWrapper backgroundColor={lightMode ? "#fff" : "none"} scroll={scrolling}>
             {navbarLogo !== null ?
                 <NavbarLogo
                     src={navbarLogo} alt="logo_navbar" /> : null
@@ -135,9 +171,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                         <h6> {item[1]} </h6>
                     </NavbarListItem>
                 ))}
+                <a href={"https://linktr.ee/xplore_app"} target="_blank" rel="noopener noreferrer">
+                    <NavbarListItem lightMode={lightMode}>
+                        <h6>Réseaux</h6>
+                    </NavbarListItem>
+                </a>
             </NavbarList>
 
-            <NavbarCol>
+            {/* <NavbarCol>
                 <NavbarRow style={{ gap: "1rem" }}>
                     <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
                         <Icon
@@ -166,13 +207,13 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                             style={{ fontSize: "28px" }} />
                     </a>
                 </NavbarRow>
-            </NavbarCol>
+            </NavbarCol> */}
 
-            <Button primary style={{ position: "relative" }}>
+            {/* <Button primary style={{ position: "relative" }}>
                 <h6>
                     Partir à l'aventure
                 </h6>
-            </Button>
+            </Button> */}
         </NavbarWrapper>
     );
 

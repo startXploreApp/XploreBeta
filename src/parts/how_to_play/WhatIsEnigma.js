@@ -65,7 +65,7 @@ const WhatIsEnigma = () => {
     const { height, width } = useWindowDimensions();
 
     return (
-        <Panel backgroundColor={"#F8F9FA"} style={{ height: "auto" }}>
+        <Panel id="whatIsEnigma" backgroundColor={"#F8F9FA"} style={{ height: "auto" }}>
             <Column style={{ width: "100%" }}>
                 <h2 style={{ marginBottom: "5rem" }}>A quoi ressemble une énigme ?</h2>
                 { width >= 768 ? 

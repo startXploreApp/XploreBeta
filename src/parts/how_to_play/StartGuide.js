@@ -3,9 +3,10 @@ import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Panel from "../../components/Panel";
 import Row from "../../components/Row";
-import { faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faRocket, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
 import { SubTitle } from "../../components/Titles";
+import WHITEPAPER from "../../media/whitepaper.pdf";
 
 
 
@@ -22,13 +23,24 @@ const StartGuide = () => {
                     <SubTitle>Tutoriel d’achat de ticket de participation</SubTitle>
                 </div>
                 <Row style={{ gap: "1.5rem" }}>
-                    <Button secondary>
+                    <Button secondary onClick={() => {
+                        const element = document.getElementById("whatIsEnigma");
+                        const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                        const y = element.getBoundingClientRect().top + window.pageYOffset - 10*rem;
+                        window.scrollTo({ "top": y, "behavior": "smooth" })
+                    }}>
                         <h6>En savoir plus</h6>
                     </Button>
-                    <Button primary>
+                    {/* <Button primary>
                         <h6>Partir à l'aventure</h6>
                         <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                    </Button>
+                    </Button> */}
+                    <a href={WHITEPAPER} target="_blank" rel="noreferrer">
+                        <Button primary>
+                            <h6>Whitepaper</h6>
+                            <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                        </Button>
+                    </a>
                 </Row>
             </Column>
         </Panel>

@@ -35,7 +35,7 @@ function App() {
             <ScrollToTop />
             <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
             <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<Home setCurrentPage={setCurrentPage} />} />
                 <Route path="/how-to-play" element={<HowToPlay />} />
                 <Route path="/litepaper" element={<Litepaper />} />
                 <Route path="/team" element={<Team />} />

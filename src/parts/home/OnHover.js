@@ -54,9 +54,10 @@ const OnHover = () => {
                         </div>
 
                         <ExpandColumnContentWrapper style={{ zIndex: "1"}}>
-                            <FontAwesomeIcon icon={faEarth} color="#FFFFF1" size="5x" />
-                            <h3>
-                                Soyez récompensé
+                            <img src={require("../../assets/treasure-chest.svg").default} alt="treasure" />
+                            {/* <FontAwesomeIcon icon={faEarth} color="#FFFFF1" size="5x" /> */}
+                            <h3 style={{ textAlign: "center" }}>
+                                Soyez<br/>récompensé
                             </h3>
                             <p style={{ fontFamily: "Inter", fontSize: "1rem", textAlign: "center" }}>
                                 Trouvez les points d’intérêts pour continuer l’aventure et remportez un prix à chaque étape, peut-être mettrez-vous la main sur le trésor final !

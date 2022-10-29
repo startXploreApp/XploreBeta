@@ -5,6 +5,7 @@ import WhatIsXplore from "./WhatIsXplore";
 import Origin from "./Origin";
 import Roadmap from "./Roadmap";
 import ResourceSharing from "./ResourceSharing";
+import ParallaxImage from "../../components/ParallaxImage";
 
 const Litepaper = () => {
     return (
@@ -12,14 +13,7 @@ const Litepaper = () => {
             <WhatIsXplore />
             <Missions />
             <Origin />
-            <Panel style={{ height: "300px" }}>
-                <Column style={{ padding: "0", width: "100%", height: "300px" }}>
-                    <img 
-                        style={{ objectPosition: "center 60%", width: "100%", height: "300px", objectFit: "cover" }}
-                        src={ require("../../assets/gars_sac.jpg") }
-                        alt="4" />
-                </Column>
-            </Panel>
+            <ParallaxImage />
             <Roadmap />
             <ResourceSharing />
         </>

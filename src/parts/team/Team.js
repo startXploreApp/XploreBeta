@@ -7,6 +7,7 @@ import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { TeamPresentation } from "./TeamPresentation";
 import { Partners } from "./Partners";
 import { ContactUs } from "./ContactUs";
+import ParallaxImage from "../../components/ParallaxImage";
 
 const Team = () => {
     return (
@@ -16,26 +17,24 @@ const Team = () => {
                 <Column style={{ alignItems: "flex-start", justifyContent: "flex-end", color: "white", height: "100%", zIndex: 1 }}>
                     <h1>Découvrez notre équipe d’aventuriers</h1>
                     <Row style={{ gap: "1.5rem" }}>
-                        <Button secondary>
+                        <Button secondary onClick={() => {
+                            const element = document.getElementById("our-team");
+                            const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                            const y = element.getBoundingClientRect().top + window.pageYOffset - 9*rem;
+                            window.scrollTo({ "top": y, "behavior": "smooth" })
+                        }}>
                             <h6>Nous découvrir</h6>
                         </Button>
-                        <Button primary>
+                        {/* <Button primary>
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                        </Button>
+                        </Button> */}
                     </Row>
                 </Column>
             </Panel>
             <TeamPresentation />
             {/* <Partners /> */}
-            <Panel style={{ height: "min-content" }}>
-                <Column style={{ padding: "0", width: "100%", }}>
-                    <img
-                        style={{ objectPosition: "center 70%", width: "100%", height: "300px", objectFit: "cover" }}
-                        src={require("../../assets/gars_sac.jpg")}
-                        alt="4" />
-                </Column>
-            </Panel>
+            <ParallaxImage />
             <ContactUs />
         </>
     );

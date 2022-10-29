@@ -4,7 +4,7 @@ import Column from "../../components/Column";
 import Row from "../../components/Row";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { faDiscord, faInstagram, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faInstagram, faTelegram, faTwitter, faTiktok, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Icon } from "../../components/Icon";
@@ -93,6 +93,18 @@ const PlaceholderColumn = styled(Column)`
     }
 `;
 
+const FooterIcon = styled(Icon)`
+    font-size: 28px;
+
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
+        font-size: 24px;
+    }
+
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        font-size: 20px;
+    }
+`;
+
 const Footer = ({ currentPage, setCurrentPage }) => {
     
     const navigate = useNavigate();
@@ -117,7 +129,6 @@ const Footer = ({ currentPage, setCurrentPage }) => {
                 <PlaceholderColumn>
                     <FooterLogo src={ require("../../assets/white.png") } />
                     <CopyrightInfo style={{ color: "white", fontFamily: "Inter", fontWeight: "700", fontSize: "1rem"}}>
-                        @Copyright 2022<br/>
                         X'PLORE
                     </CopyrightInfo>
                 </PlaceholderColumn>
@@ -134,10 +145,15 @@ const Footer = ({ currentPage, setCurrentPage }) => {
                                 <h6> { item[1] } </h6>
                             </FooterListItem>
                         ))}
-                        <Button primary>
+                        <a href={"https://linktr.ee/xplore_app"} target="_blank" rel="noopener noreferrer">
+                            <FooterListItem>
+                                <h6>Réseaux</h6>
+                            </FooterListItem>
+                        </a>
+                        {/* <Button primary>
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
-                        </Button>
+                        </Button> */}
                         </>
                     </FooterList>
                     <Divider />
@@ -151,28 +167,34 @@ const Footer = ({ currentPage, setCurrentPage }) => {
                 </Column>
                 <LogoColumn>
                     <a href={"https://discord.gg/B4jEZbAWbW"} target="_blank" rel="noreferrer">
-                        <Icon
+                        <FooterIcon
                             lightMode={false}
-                            icon={faDiscord}
-                            style={{ fontSize: "28px" }} />
+                            icon={faDiscord} />
                     </a>
                     <a href={"https://www.instagram.com/xplore.app.project/"} target="_blank" rel="noreferrer">
-                        <Icon
+                        <FooterIcon
                             lightMode={false}
-                            icon={faInstagram}
-                            style={{ fontSize: "28px" }} />
+                            icon={faInstagram} />
                     </a>
                     <a href={"https://twitter.com/app_xplore"} target="_blank" rel="noreferrer">
-                        <Icon
+                        <FooterIcon
                             lightMode={false}
-                            icon={faTwitter}
-                            style={{ fontSize: "28px" }} />
+                            icon={faTwitter} />
                     </a>
                     <a href={"https://t.me/XploreApp"} target="_blank" rel="noreferrer">
-                        <Icon
+                        <FooterIcon
                             lightMode={false}
-                            icon={faTelegram}
-                            style={{ fontSize: "28px" }} />
+                            icon={faTelegram} />
+                    </a>
+                    <a href={"https://www.facebook.com/Xplore-103664729071310"} target="_blank" rel="noreferrer">
+                        <FooterIcon
+                            lightMode={false}
+                            icon={faFacebookF} />
+                    </a>
+                    <a href={"https://www.tiktok.com/@xplore_app"} target="_blank" rel="noreferrer">
+                        <FooterIcon
+                            lightMode={false}
+                            icon={faTiktok} />
                     </a>
                 </LogoColumn>
             </FooterWrapper>

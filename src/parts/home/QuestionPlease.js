@@ -86,15 +86,10 @@ const QuestionCardNFT = styled(NFTImage)`
 const QuestionCardWrapper = styled.div`
     display: grid;
     width: 100%;
-    grid-template-columns: 80% 20%;
+    /* grid-template-columns: 80% 20%; */
+    grid-template-columns: 100%;
     align-items: flex-start;
-    gap: 1.5rem;
-    @media (max-width: ${({theme}) => theme.screen.large}) {
-        grid-template-columns: 70% 30%;
-    }
-    @media (max-width: ${({theme}) => theme.screen.medium}) {
-        grid-template-columns: 100%;
-    }
+    grid-gap: 1.5rem;
 `;
 
 const QuestionPlease = (props) => {
@@ -103,7 +98,7 @@ const QuestionPlease = (props) => {
             <Column style={{ width: "100%" }}>
                 <h3 style={{ lineHeight: "42px", fontWeight: "700", fontFamily: "Poppins", color: "white" }}>Questions fréquentes</h3>
                 <QuestionCardWrapper>
-                    <Column style={{ padding: "0", gap: "0.5rem", width: "100%" }}>
+                    <Column style={{ padding: "0", gap: "0.75rem", width: "100%" }}>
                         { questions.map((item, index) => (
                             <CollapsibleCard key={index} title={item.title} content={item.response} />
                         ))}

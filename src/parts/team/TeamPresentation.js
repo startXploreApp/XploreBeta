@@ -77,7 +77,7 @@ export const TeamPresentation = () => {
             <Column>
                 <h2>L'équipe</h2>
             </Column>
-            <Panel style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
+            <Panel id="our-team" style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
                 <Column style={{ width: "100%" }}>
                     <ProfilRow>
                         <Profil
@@ -105,7 +105,7 @@ export const TeamPresentation = () => {
                     </ProfilRow>
                 </Column>
             </Panel>
-            <Panel style={{ height: "min-content", width: "100%", color: "#111113" }}>
+            <Panel style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
                 <Column style={{ width: "100%" }}>
                     <ProfilRow>
                         <Profil
@@ -131,7 +131,7 @@ export const TeamPresentation = () => {
                     </ProfilRow>
                 </Column>
             </Panel>
-            <Panel style={{ height: "min-content", width: "100%", color: "#111113" }}>
+            <Panel style={{ height: "min-content", width: "100%", backgroundColor: "#1F2B3A", color: "#FFF" }}>
                 <Column style={{ width: "100%" }}>
                     <ProfilRow>
                         <Profil

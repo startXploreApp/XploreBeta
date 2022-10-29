@@ -194,14 +194,14 @@ const ResourceSharing = () => {
                         </Column >
                     }
                 </Column>
-                <Row style={{ width: "100%", justifyContent: "flex-end" }}>
+                {/* <Row style={{ width: "100%", justifyContent: "flex-end" }}>
                     <Button primary>
                         <p style={{ fontFamily: "Poppins", fontSize: "1rem", fontWeight: "500" }}>
                             Acheter un ticket maintenant
                         </p>
                         <FontAwesomeIcon icon={faArrowRight} size={"xl"} />
                     </Button>
-                </Row>
+                </Row> */}
             </Column>
         </Panel>
     );
