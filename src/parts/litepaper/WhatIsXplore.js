@@ -54,7 +54,12 @@ const WhatIsXplore = () => {
                             <Button onClick={() => {
                                 const element = document.getElementById("our-origin");
                                 const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-                                const y = element.getBoundingClientRect().top + window.pageYOffset - 9*rem;
+                                let y = 0;
+                                if (window.scrollY > 0) {
+                                    y = element.getBoundingClientRect().top + window.pageYOffset - 5*rem;
+                                } else {
+                                    y = element.getBoundingClientRect().top + window.pageYOffset - 9*rem;
+                                }
                                 window.scrollTo({ "top": y, "behavior": "smooth" })
                             }}>
                                 <h6>En savoir plus</h6>
