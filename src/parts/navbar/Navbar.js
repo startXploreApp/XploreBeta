@@ -100,7 +100,6 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     const [navbarLogo, setNavbarLogo] = useState(null);
 
     const changeNavbarColor = () => {
-        console.log(currentPage);
         if (currentPage !== "/litepaper" && currentPage !== "/team") {
             if (window.scrollY > 100) {
                 setLightMode(true);
