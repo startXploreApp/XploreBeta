@@ -63,7 +63,7 @@ const GrandmaWrapper = styled.div`
     @media (max-width: ${({theme}) => theme.screen.large}) {
         grid-template-columns: 30% 70%;
     }
-    @media (max-width: ${({theme}) => theme.screen.large}) {
+    @media (max-width: ${({theme}) => theme.screen.medium}) {
         grid-template-columns: 1fr;
     }
 `;
@@ -95,8 +95,7 @@ const HowToStart = () => {
         <Panel backgroundColor={"#1F2B3A"} style={{ color: "white" }}>
             <GrandmaWrapper>
                 <Grandma
-                    src={require("../../assets/grandma.jpg")}
-                    style={{  }} />
+                    src={require("../../assets/map.png")} />
                 <Column style={{ width: "100%" }}>
                     <h2 style={{ lineHeight: "42px", marginBottom: "5vh" }}>
                         Comment démarrer l’aventure ?

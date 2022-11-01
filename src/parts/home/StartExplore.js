@@ -84,7 +84,7 @@ const StartExplore = () => {
                         <a href={WHITEPAPER} target="_blank" rel="noreferrer">
                             <Button primary>
                                 <h6>Whitepaper</h6>
-                                    <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                                <FontAwesomeIcon icon={faDownload} size={"xl"} />
                             </Button>
                         </a>
                     </Row>

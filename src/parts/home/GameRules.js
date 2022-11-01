@@ -17,7 +17,7 @@ const GridWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
 
-    @media (max-width: ${({theme}) => theme.screen.large}) {
+    @media (max-width: 1410px) {
         grid-template-columns: 1fr;
     }
 
@@ -44,7 +44,7 @@ const GameRules = ({ setCurrentPage }) => {
                 <Column style={{ width: "100%", padding: "0" }}>
                     <GridWrapper>
                         <Column style={{ padding: "0", marginTop: "-10rem", width: "100%", height: "auto", justifyContent: "center", gap: "3rem" }}>
-                            {width >= 1280 ?
+                            {width >= 1410 ?
                                 <>
                                     <GreenCardWrapper style={{ position: "relative" }}>
                                         <div style={{display: "flex", gap: "0.5rem", alignItems: "center" }}>

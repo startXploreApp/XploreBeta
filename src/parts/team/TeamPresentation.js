@@ -32,10 +32,10 @@ const ProfilRow = styled.div`
     }
 `;
 
-const Profil = ({ image = require("../../assets/grandma.jpg"), missions, coFounders=false, name, role, social_media, social_media_username, social_media_url, lightMode = true, icon }) => {
+const Profil = ({ image = require("../../assets/grandma.jpg"), position = "center center", missions, coFounders=false, name, role, social_media, social_media_username, social_media_url, lightMode = true, icon }) => {
     return (
         <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexDirection: "row", width: "31.5rem", maxWidth: "31.5rem", gap: "0.5rem"}}>
-            <img style={{ width: "12.5rem", height: "12.5rem", objectFit: "cover", borderRadius: "100%" }} src={image} alt="profil" />
+            <img style={{ width: "12.5rem", height: "12.5rem", objectFit: "cover", borderRadius: "100%", objectPosition: `${position}`}} src={image} alt="profil" />
             <Column style={{ gap: "0.25rem", height: "100%", padding: "0 1rem", justifyContent: "space-between" }}>
                 <h5 style={{ fontSize: "1.75rem" }}>{name}</h5>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginTop: "0.5rem" }}>
@@ -121,6 +121,7 @@ export const TeamPresentation = () => {
                         <Profil
                             image={require("../../assets/team_lise.jpg")}
                             coFounders
+                            position="center 30%"
                             icon="CCO"
                             name="Lise"
                             missions={["3D artist", "2D/3D tatoo artist"]}
@@ -137,6 +138,7 @@ export const TeamPresentation = () => {
                         <Profil
                             image={require("../../assets/team_ines.jpeg")}
                             icon="Mar"
+                            position="center 10%"
                             name="Ines Zaïdi"
                             missions={["Marketing"]}
                             role="Marketing Manager"
@@ -161,6 +163,7 @@ export const TeamPresentation = () => {
                         <Profil
                             image={require("../../assets/team_romain.jpg")}
                             icon="CTO"
+                            position="center 30%"
                             lightMode={false}
                             name="Romain Martineau"
                             missions={["Develop"]}

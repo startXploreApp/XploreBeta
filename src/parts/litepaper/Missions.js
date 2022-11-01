@@ -14,7 +14,7 @@ const missions = [
     {
         "logo": faFaceGrinBeam,
         "title": "Challenge",
-        "content": "Résolvez des enigmes plus ou moins complexes et trouvez les QRCodes afin de remporter des récompenses uniques."
+        "content": "Résolvez des énigmes plus ou moins complexes et trouvez les QRCodes afin de remporter des récompenses uniques."
     },
     {
         "logo": faFaceGrinBeam,

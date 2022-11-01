@@ -124,13 +124,10 @@ const Footer = ({ currentPage, setCurrentPage }) => {
     ]
 
     return(
-        <Panel style={{ height: "67vh", backgroundColor: "#000" }}>
+        <Panel style={{ height: "75vh", backgroundColor: "#000" }}>
             <FooterWrapper style={{ position: "relative" }}>
                 <PlaceholderColumn>
                     <FooterLogo src={ require("../../assets/white.png") } />
-                    <CopyrightInfo style={{ color: "white", fontFamily: "Inter", fontWeight: "700", fontSize: "1rem"}}>
-                        X'PLORE
-                    </CopyrightInfo>
                 </PlaceholderColumn>
                 <Column style={{ alignContent: "center", alignItems: "center"}}>
                     <FooterList style={{ gap: "2rem", alignContent: "center", alignItems: "center"}}>

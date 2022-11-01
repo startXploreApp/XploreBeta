@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import styled, { css, keyframes} from "styled-components";
 import Button from "../../components/Button";
 import ScrollableRow, { ScrollElementWrapper, ScrollableRowWrapper} from "../../components/Scroll";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 
 const createKeyframes = (a, b, t) => {
@@ -130,10 +133,15 @@ const tutorial_maiar = [
 ]
 
 export const TutoMaiar = () => {
+    const { height, width } = useWindowDimensions();
+
     return (
         <Panel id="tutorial-maiar" backgroundColor="#1F2B3A" style={{ height: "auto"}}>
-            <Column style={{ width: "100%", color: "#D0D0D0", height: "100%"}}>
+            <Column style={{ width: "100%", color: "#D0D0D0", height: "100%", position: "relative" }}>
+                <Column style={{ padding: 0, gap: "0.5rem" }}>
                 <h2 >Tutoriel Maiar</h2>
+                <h6>Toute la procédure pour se créer un portefeuille virtuel</h6>
+                </Column>
                 <ScrollableRow>
                     <Column style={{ gap: 0, padding: 0, height: "auto" }}>
                         <Row style={{ alignItems: "flex-start", position: "relative", paddingLeft: "2.5rem" }}>
@@ -142,11 +150,28 @@ export const TutoMaiar = () => {
                                 <ScrollElement text={item.text} key={index} img={item.img}/>
                             )}
                         </Row>
-                        <Row style={{ gap: "0", width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
-                            <Button secondary style={{ width: "auto"}}>
-                                <h6>Télécharger l'application Maiar</h6>
-                            </Button>
-                        </Row>
+                        <>
+                        { width >= 576 ? 
+                            <Row style={{ gap: "0", width: "100%", justifyContent: "flex-end", padding: "0 3.75rem" }}>
+                                <a href={"https://play.google.com/store/apps/details?id=com.elrond.maiar.wallet"} target="_blank" rel="noreferrer">
+                                    <Button secondary style={{ width: "auto"}}>
+                                        <h6>Télécharger l'application Maiar</h6>
+                                    </Button>
+                                </a>
+                            </Row> : 
+                            <Row style={{ gap: "0", width: "100%", justifyContent: "space-between", padding: "0 3.75rem 0 0" }}>
+                                <h3 style={{ width: `calc(${width}px - 7.5rem)` }}>
+                                    Défile les cartes pour voir les différentes étapes
+                                    <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faArrowRight} size={"xl"} />
+                                </h3>
+                                <a href={"https://play.google.com/store/apps/details?id=com.elrond.maiar.wallet"} target="_blank" rel="noreferrer">
+                                    <Button secondary style={{ width: "auto"}}>
+                                        <h6>Télécharger l'application Maiar</h6>
+                                    </Button>
+                                </a>
+                            </Row>
+                        }
+                        </>
                     </Column>
                 </ScrollableRow>
             </Column>

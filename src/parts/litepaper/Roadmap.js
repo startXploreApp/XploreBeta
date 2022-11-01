@@ -86,7 +86,7 @@ const Roadmap = () => {
     return (
         <Panel backgroundColor="#fff" style={{ position: "relative", height: "auto" }}>
             <Column style={{ width: "100%" }}>
-                <h3>Roadmap prévisitionnelle</h3>
+                <h3>Roadmap prévisionnelle</h3>
             
                 <ScrollableRow style={{ alignItems: "flex-start", height: "30rem", position: "relative" }}>
                 <RoadmapPath 
@@ -100,7 +100,7 @@ const Roadmap = () => {
                             year={"2022"}
                             icon={faChalkboardUser}
                             title={"Premier Proof Of Concept"}>
-                        <RoadmapCardSubtitle>Beta du jeu</RoadmapCardSubtitle>
+                        <RoadmapCardSubtitle>Alpha du jeu</RoadmapCardSubtitle>
                         <RoadmapCardSubtitle>Lieu: Rennes</RoadmapCardSubtitle>
                         <br/>
                         <RoadmapCardSubtitle>X'Plore uniquement pour 40 personnes</RoadmapCardSubtitle>
@@ -113,7 +113,7 @@ const Roadmap = () => {
                             dividerColor={"#1FCE55"}
                             icon={faChartColumn}
                             title={"Second Proof Of Concept"}>
-                        <RoadmapCardSubtitle>Alpha du jeu</RoadmapCardSubtitle>
+                        <RoadmapCardSubtitle>Beta du jeu</RoadmapCardSubtitle>
                         <RoadmapCardSubtitle>Lieu: Nantes</RoadmapCardSubtitle>
                         <br/>
                         <RoadmapCardSubtitle>X'Plore uniquement pour 70 personnes</RoadmapCardSubtitle>
