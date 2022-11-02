@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
 import Tooltip from "../../components/Tooltip";
-import WHITEPAPER from "../../media/whitepaper.pdf";
+import WHITEPAPER_fr from "../../media/whitepaper_fr.pdf";
+import WHITEPAPER_en from "../../media/whitepaper_en.pdf";
 
 const RedDot = styled.div`
     width: 2.2rem;
@@ -30,6 +31,23 @@ const MainColumn = styled(Column)`
         margin-top: 5rem;
         height: 100%;
         align-content: flex-start;
+    }
+`;
+
+const BottomRow = styled(Row)`
+    gap: 1.5rem;
+
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+`;
+
+const ButtonRow = styled(Row)`
+    gap: 1.5rem;
+    @media (max-width: ${({theme}) => theme.screen.small}) {
+        padding: 0;
     }
 `;
 
@@ -57,16 +75,16 @@ const StartExplore = () => {
                     </Button>
                 </Column> */}
 
-                <Column style={{padding: "0 1.5rem"}}>
+                <Column style={{padding: "0"}}>
                     <h2 style={{ lineHeight: "42px", color: "white" }}>
                         Bienvenue dans le premier jeu décentralisé <br />
                         qui vous récompense pour 
                         <span style={{ marginLeft: "0.5rem", fontFamily: "Praise", fontSize: "4.5rem", color: "#FFBD3F" }}>explorer</span>
                     </h2>
-                    <Row style={{ gap: "1.5rem" }}>
+                    <BottomRow>
                         <Button onClick={() => {
                             const element = document.getElementById("game-rules");
-                            const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+                            let rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
                             let y = 0;
                             if (window.scrollY > 0) {
                                 y = element.getBoundingClientRect().top + window.pageYOffset - 5*rem;
@@ -81,13 +99,21 @@ const StartExplore = () => {
                             <h6>Partir à l'aventure</h6>
                             <FontAwesomeIcon icon={faRocket} size={"xl"} />
                         </Button> */}
-                        <a href={WHITEPAPER} target="_blank" rel="noreferrer">
-                            <Button primary>
-                                <h6>Whitepaper</h6>
-                                <FontAwesomeIcon icon={faDownload} size={"xl"} />
-                            </Button>
-                        </a>
-                    </Row>
+                        <ButtonRow>
+                            <a href={WHITEPAPER_fr} target="_blank" rel="noreferrer">
+                                <Button primary>
+                                    <h6>Whitepaper - FR</h6>
+                                    <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                                </Button>
+                            </a>
+                            <a href={WHITEPAPER_en} target="_blank" rel="noreferrer">
+                                <Button primary>
+                                    <h6>Whitepaper - EN</h6>
+                                    <FontAwesomeIcon icon={faDownload} size={"xl"} />
+                                </Button>
+                            </a>
+                        </ButtonRow>
+                    </BottomRow>
                 </Column>
 
             </MainColumn>

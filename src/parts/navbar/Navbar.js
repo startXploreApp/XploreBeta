@@ -22,7 +22,7 @@ const NavbarWrapper = styled.div`
     transition: all 0.2s ease-out;
 
     @media (max-width: ${({theme}) => theme.screen.large}) {
-        gap: 10rem;
+        gap: 5rem;
     }
 
     @media (max-width: ${({theme}) => theme.screen.medium}) {

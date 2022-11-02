@@ -6,7 +6,7 @@ import Row from "../../components/Row";
 import { faRocket, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { BackgroundImage } from "../../components/BackgroundImage";
 import { SubTitle } from "../../components/Titles";
-import WHITEPAPER from "../../media/whitepaper.pdf";
+import WHITEPAPER from "../../media/whitepaper_fr.pdf";
 
 
 

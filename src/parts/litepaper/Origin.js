@@ -2,7 +2,7 @@ import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import Button from "../../components/Button";
 import styled from "styled-components";
-import WHITEPAPER from "../../media/whitepaper.pdf";
+import WHITEPAPER from "../../media/whitepaper_fr.pdf";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
