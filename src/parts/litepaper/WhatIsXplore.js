@@ -48,7 +48,7 @@ const WhatIsXplore = () => {
                             Une chasse au trésor à la découverte du monde <br/>
                             Une aventure unique et récompensée <br />
                             L'éducation à la blockchain <br/>
-                            Une équipe de passionés <br/>                            
+                            Une équipe de passionnés <br/>                            
                         </h5>
                         <Row style={{ gap: "1.5rem" }}>
                             <Button onClick={() => {

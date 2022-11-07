@@ -3,31 +3,32 @@ import Panel from "../../components/Panel";
 import Column from "../../components/Column";
 import Row from '../../components/Row';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPeopleCarryBox, faBullseye, faPersonRunning, faLandmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faFaceGrinBeam } from "@fortawesome/free-regular-svg-icons";
 
 const missions = [
     {
-        "logo": faFaceGrinBeam,
+        "logo": faMagnifyingGlass,
         "title": "Découverte",
         "content": "Explorez des villes et des lieux dont ne vous soupçonniez pas l’existence et partez à l’aventure."
     },
     {
-        "logo": faFaceGrinBeam,
+        "logo": faBullseye,
         "title": "Challenge",
         "content": "Résolvez des énigmes plus ou moins complexes et trouvez les QRCodes afin de remporter des récompenses uniques."
     },
     {
-        "logo": faFaceGrinBeam,
+        "logo": faLandmark,
         "title": "Éducation",
         "content": "Découvrez l'univers de la blockchain et ses utilisations possibles à travers un jeu innovant."
     },
     {
-        "logo": faFaceGrinBeam,
+        "logo": faPeopleCarryBox,
         "title": "Rencontres",
         "content": "Résoudre des énigmes vous demandera parfois de rentrer en contact avec d'autres joueurs dans le but de poursuivre l'aventure."
     },
     {
-        "logo": faFaceGrinBeam,
+        "logo": faPersonRunning,
         "title": "Action",
         "content": "X'Plore vous motive à sortir de chez vous pour visiter votre pays."
     },

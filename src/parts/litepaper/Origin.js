@@ -32,15 +32,20 @@ const Origin = () => {
                             Nous sommes une équipe de passionés, des voyageurs, des aventuriers et explorateurs
                         </p>
                         <p>
-                            Aujourd'hui, nous nous sommes posés une question: comment profiter de la vie ? Une réponse nous a parue évidente,
-                            en voyageant ! Imaginez une vie dans laquelle vous seriez payés pour voyager à travers le monde et découvrir ses merveilles.
-                            A moins de travailler pour le guide Michelin ou bien d'avoir une certaine notoriété, cela semble irréel.
+                            Aujourd’hui, nous nous sommes posés une question : comment profiter de la vie ? 
+                            Une réponse nous a parue évidente, en voyageant ! 
+                            Imaginez une vie dans laquelle vous seriez payés pour voyager à travers le monde et découvrir ses merveilles. 
+                            A moins de travailler pour le guide Michelin ou bien d’avoir une certaines notoriétés, cela semble irréel.
                         </p>
                         <p>
                             Notre projet vous permet de vivre cela, vous rémunérer en voyageant.
                         </p>
                         <p>
-                            Les rencontres, la découverte et l'imprévisible sont des choses que nous estimons importantes. Il nous semble essentiel
+                            Les rencontres, la découverte et l’imprévisible sont des choses que nous estimons importantes. 
+                            Il nous semble essentiel de vous les partager.
+                        </p>
+                        <p>
+                            X’Plore rassemble les personnes ayant cette passion commune pour l’inconnu et les récompense à chaque étape de leur aventure. 
                         </p>
                     </Column>
                     <a href={WHITEPAPER} target="_blank" rel="noreferrer">
